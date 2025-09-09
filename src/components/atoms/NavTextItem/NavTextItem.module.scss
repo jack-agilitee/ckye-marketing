@@ -1,0 +1,31 @@
+@import '@/styles/variables';
+@import '@/styles/mixins';
+
+.navTextItem {
+  display: inline-block;
+  padding: $spacing-sm $spacing-md;
+  border-radius: $border-radius-xl;
+  font-family: $font-family-inter;
+  font-size: $font-size-base;
+  font-weight: $font-weight-medium;
+  line-height: $line-height-nav;
+  letter-spacing: $letter-spacing-nav;
+  color: $color-grey-200;
+  background-color: transparent;
+  text-decoration: none;
+  white-space: nowrap;
+  transition: color 200ms ease-in-out, background-color 200ms ease-in-out;
+  cursor: pointer;
+
+  &:hover {
+    color: $color-white;
+    background-color: $color-grey-400;
+  }
+
+  @include focus-visible;
+
+  &--active {
+    color: $color-white;
+    background-color: $color-grey-400;
+  }
+}
