@@ -2,6 +2,7 @@
 
 import React, { useState } from 'react';
 import Button from '@/components/atoms/Button/Button';
+import NavTextItem from '@/components/atoms/NavTextItem/NavTextItem';
 import styles from './showcase.module.scss';
 
 // Code Example Component
@@ -81,7 +82,12 @@ function ComponentWrapper({
   'data-testid': testId
 }: ComponentWrapperProps) {
   const copyComponentCode = async () => {
-    const importCode = `import Button from '@/components/atoms/Button/Button';`;
+    let importCode = '';
+    if (id === 'button') {
+      importCode = `import Button from '@/components/atoms/Button/Button';`;
+    } else if (id === 'nav-text-item') {
+      importCode = `import NavTextItem from '@/components/atoms/NavTextItem/NavTextItem';`;
+    }
     await navigator.clipboard.writeText(importCode);
   };
 
@@ -305,6 +311,234 @@ function MyPage() {
   );
 }
 
+// NavTextItem Showcase
+function NavTextItemShowcase() {
+  const [activeItem, setActiveItem] = useState('home');
+
+  return (
+    <ComponentWrapper
+      id="nav-text-item"
+      title="NavTextItem"
+      description="Navigation text item component with hover states and active indicators"
+      githubUrl="/src/components/atoms/NavTextItem/NavTextItem.tsx"
+      data-testid="showcase-nav-text-item"
+    >
+      {/* Basic Variants Section */}
+      <div className={styles.showcaseSection} data-testid="nav-text-item-variants">
+        <h3>States</h3>
+        <div className={styles.showcaseExamples}>
+          <div className={styles.showcaseExample} data-testid="nav-text-item-default">
+            <div className={styles.showcasePreview}>
+              <NavTextItem href="/about" data-testid="nav-item-default">
+                About Us
+              </NavTextItem>
+            </div>
+            <CodeExample>
+              {`<NavTextItem href="/about">About Us</NavTextItem>`}
+            </CodeExample>
+          </div>
+
+          <div className={styles.showcaseExample} data-testid="nav-text-item-active">
+            <div className={styles.showcasePreview}>
+              <NavTextItem href="/services" isActive data-testid="nav-item-active">
+                Services
+              </NavTextItem>
+            </div>
+            <CodeExample>
+              {`<NavTextItem href="/services" isActive>Services</NavTextItem>`}
+            </CodeExample>
+          </div>
+        </div>
+      </div>
+
+      {/* Different Content Examples Section */}
+      <div className={styles.showcaseSection} data-testid="nav-text-item-content">
+        <h3>Different Text Content</h3>
+        <div className={styles.showcaseExamples}>
+          <div className={styles.showcaseExample} data-testid="nav-text-item-short">
+            <div className={styles.showcasePreview}>
+              <NavTextItem href="/home" data-testid="nav-item-short">
+                Home
+              </NavTextItem>
+            </div>
+            <CodeExample>
+              {`<NavTextItem href="/home">Home</NavTextItem>`}
+            </CodeExample>
+          </div>
+
+          <div className={styles.showcaseExample} data-testid="nav-text-item-medium">
+            <div className={styles.showcasePreview}>
+              <NavTextItem href="/portfolio" data-testid="nav-item-medium">
+                Our Portfolio
+              </NavTextItem>
+            </div>
+            <CodeExample>
+              {`<NavTextItem href="/portfolio">Our Portfolio</NavTextItem>`}
+            </CodeExample>
+          </div>
+
+          <div className={styles.showcaseExample} data-testid="nav-text-item-long">
+            <div className={styles.showcasePreview}>
+              <NavTextItem href="/contact" data-testid="nav-item-long">
+                Contact Information
+              </NavTextItem>
+            </div>
+            <CodeExample>
+              {`<NavTextItem href="/contact">Contact Information</NavTextItem>`}
+            </CodeExample>
+          </div>
+        </div>
+      </div>
+
+      {/* Interactive Navigation Demo Section */}
+      <div className={styles.showcaseSection} data-testid="nav-text-item-interactive">
+        <h3>Interactive Navigation Demo</h3>
+        <div className={styles.showcaseExamples}>
+          <div className={styles.showcaseExample} data-testid="nav-text-item-navigation-demo">
+            <div className={styles.showcasePreview}>
+              <div style={{ display: 'flex', gap: '8px', flexWrap: 'wrap' }}>
+                {['home', 'about', 'services', 'portfolio', 'contact'].map((item) => (
+                  <NavTextItem
+                    key={item}
+                    href={`/${item}`}
+                    isActive={activeItem === item}
+                    onClick={(e) => {
+                      e.preventDefault();
+                      setActiveItem(item);
+                    }}
+                    data-testid={`nav-item-demo-${item}`}
+                  >
+                    {item.charAt(0).toUpperCase() + item.slice(1)}
+                  </NavTextItem>
+                ))}
+              </div>
+            </div>
+            <CodeExample>
+              {`const [activeItem, setActiveItem] = useState('home');
+
+{['home', 'about', 'services', 'portfolio', 'contact'].map((item) => (
+  <NavTextItem
+    key={item}
+    href={\`/\${item}\`}
+    isActive={activeItem === item}
+    onClick={(e) => {
+      e.preventDefault();
+      setActiveItem(item);
+    }}
+  >
+    {item.charAt(0).toUpperCase() + item.slice(1)}
+  </NavTextItem>
+))}`}
+            </CodeExample>
+          </div>
+        </div>
+      </div>
+
+      {/* Accessibility Examples Section */}
+      <div className={styles.showcaseSection} data-testid="nav-text-item-accessibility">
+        <h3>Accessibility Features</h3>
+        <div className={styles.showcaseExamples}>
+          <div className={styles.showcaseExample} data-testid="nav-text-item-aria-label">
+            <div className={styles.showcasePreview}>
+              <NavTextItem 
+                href="/dashboard" 
+                aria-label="Navigate to user dashboard"
+                data-testid="nav-item-aria-label"
+              >
+                Dashboard
+              </NavTextItem>
+            </div>
+            <CodeExample>
+              {`<NavTextItem 
+  href="/dashboard" 
+  aria-label="Navigate to user dashboard"
+>
+  Dashboard
+</NavTextItem>`}
+            </CodeExample>
+          </div>
+
+          <div className={styles.showcaseExample} data-testid="nav-text-item-custom-click">
+            <div className={styles.showcasePreview}>
+              <NavTextItem 
+                href="/custom"
+                onClick={(e) => {
+                  e.preventDefault();
+                  alert('Custom navigation logic triggered');
+                }}
+                data-testid="nav-item-custom-click"
+              >
+                Custom Handler
+              </NavTextItem>
+            </div>
+            <CodeExample>
+              {`<NavTextItem 
+  href="/custom"
+  onClick={(e) => {
+    e.preventDefault();
+    // Custom navigation logic
+    handleCustomNavigation();
+  }}
+>
+  Custom Handler
+</NavTextItem>`}
+            </CodeExample>
+          </div>
+        </div>
+      </div>
+
+      {/* Usage Examples Section */}
+      <div className={styles.showcaseSection} data-testid="nav-text-item-usage-examples">
+        <h3>Usage Examples</h3>
+        
+        <CodeExample language="tsx" collapsible={true}>
+          {`import NavTextItem from '@/components/atoms/NavTextItem/NavTextItem';
+import { useRouter } from 'next/navigation';
+import { useState } from 'react';
+
+function Navigation() {
+  const router = useRouter();
+  const [activeRoute, setActiveRoute] = useState('/home');
+
+  const navItems = [
+    { href: '/home', label: 'Home' },
+    { href: '/about', label: 'About Us' },
+    { href: '/services', label: 'Services' },
+    { href: '/portfolio', label: 'Portfolio' },
+    { href: '/contact', label: 'Contact' }
+  ];
+
+  const handleNavigation = (href: string) => {
+    setActiveRoute(href);
+    router.push(href);
+  };
+
+  return (
+    <nav>
+      {navItems.map((item) => (
+        <NavTextItem
+          key={item.href}
+          href={item.href}
+          isActive={activeRoute === item.href}
+          onClick={(e) => {
+            e.preventDefault();
+            handleNavigation(item.href);
+          }}
+          aria-label={\`Navigate to \${item.label} page\`}
+          data-testid={\`nav-item-\${item.label.toLowerCase().replace(/\\s+/g, '-')}\`}
+        >
+          {item.label}
+        </NavTextItem>
+      ))}
+    </nav>
+  );
+}`}
+        </CodeExample>
+      </div>
+    </ComponentWrapper>
+  );
+}
+
 // Main Showcase Page
 export default function ShowcasePage() {
   return (
@@ -319,6 +553,7 @@ export default function ShowcasePage() {
           <h2>Atoms</h2>
           <div className={styles.showcaseGrid}>
             <ButtonShowcase />
+            <NavTextItemShowcase />
           </div>
         </section>
       </main>
