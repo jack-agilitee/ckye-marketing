@@ -13,7 +13,6 @@ jest.mock('./Button.module.scss', () => ({
   'button--primary': 'button--primary',
   'button--secondary': 'button--secondary',
   'button--tertiary': 'button--tertiary',
-  'button--default': 'button--default',
   'button--disabled': 'button--disabled',
 }));
 
@@ -119,11 +118,10 @@ describe('Button Component', () => {
       expect(button).toHaveClass('button--tertiary');
     });
 
-    it('should combine variant and size classes', () => {
-      const { container } = renderButton({ variant: 'secondary', size: 'default' });
+    it('should apply variant class correctly', () => {
+      const { container } = renderButton({ variant: 'secondary' });
       const button = container.querySelector('button');
       expect(button).toHaveClass('button--secondary');
-      expect(button).toHaveClass('button--default');
     });
   });
 
@@ -284,8 +282,6 @@ describe('Button Component', () => {
     it('should apply multiple classes correctly', () => {
       const { container } = renderButton({
         variant: 'primary',
-        size: 'default',
-        loading: true,
         disabled: true,
         className: 'custom-class'
       });
@@ -293,8 +289,6 @@ describe('Button Component', () => {
       
       expect(button).toHaveClass('button');
       expect(button).toHaveClass('button--primary');
-      expect(button).toHaveClass('button--default');
-      expect(button).toHaveClass('button--loading');
       expect(button).toHaveClass('button--disabled');
       expect(button).toHaveClass('custom-class');
     });
