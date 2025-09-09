@@ -107,6 +107,10 @@ $line-height-base: 1.5;
 $line-height-relaxed: 1.625;
 $line-height-loose: 2;
 
+// Feature Section Specific Line Heights
+$line-height-feature-heading: 1.2;  // Heading line height
+$line-height-feature-body: 1.4;     // Body text line height
+
 // Letter Spacing
 $letter-spacing-tight: -0.05em;
 $letter-spacing-normal: 0;
@@ -114,6 +118,14 @@ $letter-spacing-nav: -0.08px;     // Navigation text letter spacing from Figma
 $letter-spacing-wide: 0.025em;
 $letter-spacing-wider: 0.05em;
 $letter-spacing-widest: 0.1em;
+
+// Feature Section Specific Letter Spacing
+$letter-spacing-feature-h1-desktop: -1.12px;   // 56px heading
+$letter-spacing-feature-h1-tablet: -0.8px;     // 40px heading
+$letter-spacing-feature-h1-mobile: -0.64px;    // 32px heading
+$letter-spacing-feature-body-desktop: -0.12px; // 24px body
+$letter-spacing-feature-body-tablet: -0.09px;  // 18px body
+$letter-spacing-feature-body-mobile: -0.08px;  // 16px body
 
 // -----------------------------------------------------------------------------
 // Spacing

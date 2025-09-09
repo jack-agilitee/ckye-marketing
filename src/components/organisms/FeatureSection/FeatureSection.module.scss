@@ -1,0 +1,135 @@
+// FeatureSection.module.scss
+@import '@/styles/variables';
+@import '@/styles/mixins';
+
+.featureSection {
+  // Mobile first - default styles
+  display: flex;
+  flex-direction: column;
+  gap: $spacing-4xl; // 64px gap between elements
+  
+  // Colors
+  background-color: $color-background; // #08090a
+  color: $color-text-primary; // #f7f8f8
+  
+  // Typography base
+  font-family: $font-family-inter;
+  
+  // Mobile padding: 40px horizontal, 64px vertical
+  padding: $spacing-4xl $spacing-2xl; // 64px 40px
+  
+  // Tablet and Desktop: change to row layout
+  @include breakpoint(small) {
+    flex-direction: row;
+    padding: $spacing-4xl; // 64px all around
+    align-items: center;
+  }
+  
+  // Layout modifier for image position
+  &--imageRight {
+    @include breakpoint(small) {
+      .featureSection__imageWrapper {
+        order: 2;
+      }
+      
+      .featureSection__content {
+        order: 1;
+      }
+    }
+  }
+  
+  &--imageLeft {
+    @include breakpoint(small) {
+      .featureSection__imageWrapper {
+        order: 1;
+      }
+      
+      .featureSection__content {
+        order: 2;
+      }
+    }
+  }
+  
+  // Content section - 50% width on desktop/tablet
+  &__content {
+    display: flex;
+    flex-direction: column;
+    gap: $spacing-lg; // 24px between heading and body
+    width: 100%; // Full width on mobile
+    
+    @include breakpoint(small) {
+      width: 50%; // 50% width on tablet/desktop
+    }
+  }
+  
+  // Heading styles
+  &__heading {
+    color: $color-text-primary; // #f7f8f8
+    font-family: $font-family-inter;
+    font-weight: $font-weight-medium;
+    line-height: $line-height-feature-heading; // 1.2
+    margin: 0;
+    
+    // Mobile: 32px, -0.64px letter spacing
+    font-size: $font-size-h3; // 32px (2rem)
+    letter-spacing: $letter-spacing-feature-h1-mobile; // -0.64px
+    
+    // Tablet: 40px, -0.8px letter spacing
+    @include breakpoint(medium) {
+      font-size: $font-size-h2; // 40px (2.5rem)
+      letter-spacing: $letter-spacing-feature-h1-tablet; // -0.8px
+    }
+    
+    // Desktop: 56px, -1.12px letter spacing
+    @include breakpoint(large) {
+      font-size: $font-size-h1; // 56px (3.5rem)
+      letter-spacing: $letter-spacing-feature-h1-desktop; // -1.12px
+    }
+  }
+  
+  // Body text styles
+  &__body {
+    color: $color-text-secondary; // #8b8f97
+    font-family: $font-family-inter;
+    font-weight: $font-weight-regular;
+    line-height: $line-height-feature-body; // 1.4
+    margin: 0;
+    
+    // Mobile: 16px, -0.08px letter spacing
+    font-size: $font-size-base; // 16px (1rem)
+    letter-spacing: $letter-spacing-feature-body-mobile; // -0.08px
+    
+    // Tablet: 18px, -0.09px letter spacing
+    @include breakpoint(medium) {
+      font-size: $font-size-md; // 18px (1.125rem)
+      letter-spacing: $letter-spacing-feature-body-tablet; // -0.09px
+    }
+    
+    // Desktop: 24px, -0.12px letter spacing
+    @include breakpoint(large) {
+      font-size: $font-size-xl; // 24px (1.5rem)
+      letter-spacing: $letter-spacing-feature-body-desktop; // -0.12px
+    }
+  }
+  
+  // Image wrapper - 50% width on desktop/tablet, scales based on width
+  &__imageWrapper {
+    position: relative;
+    border-radius: $border-radius-2xl; // 16px
+    overflow: hidden;
+    width: 100%; // Full width on mobile
+    aspect-ratio: 544 / 432; // Maintains aspect ratio
+    
+    @include breakpoint(small) {
+      width: 50%; // 50% width on tablet/desktop
+      display: flex;
+      align-items: center; // Vertically centers the image
+    }
+  }
+  
+  // Image styles for Next.js Image component
+  &__image {
+    border-radius: $border-radius-2xl; // 16px
+    object-fit: cover;
+  }
+}

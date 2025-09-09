@@ -1,0 +1,137 @@
+// Jest Snapshot v1, https://jestjs.io/docs/snapshot-testing
+
+exports[`FeatureSection Snapshot Tests should match snapshot with custom className 1`] = `
+<section
+  class="featureSection image-left custom-feature-section"
+>
+  <div
+    class="container"
+  >
+    <div
+      class="imageWrapper"
+    >
+      <img
+        alt="Test image description"
+        class="image"
+        src="/test-image.jpg"
+      />
+    </div>
+    <div
+      class="content"
+    >
+      <h2
+        class="heading"
+      >
+        Test Feature Heading
+      </h2>
+      <p
+        class="bodyText"
+      >
+        This is the test body text for the feature section component.
+      </p>
+    </div>
+  </div>
+</section>
+`;
+
+exports[`FeatureSection Snapshot Tests should match snapshot with different content 1`] = `
+<section
+  class="featureSection image-right "
+>
+  <div
+    class="container"
+  >
+    <div
+      class="imageWrapper"
+    >
+      <img
+        alt="Different image for snapshot"
+        class="image"
+        src="/different-image.jpg"
+      />
+    </div>
+    <div
+      class="content"
+    >
+      <h2
+        class="heading"
+      >
+        Different Heading for Snapshot
+      </h2>
+      <p
+        class="bodyText"
+      >
+        Different body text content for comprehensive snapshot testing.
+      </p>
+    </div>
+  </div>
+</section>
+`;
+
+exports[`FeatureSection Snapshot Tests should match snapshot with image-left layout 1`] = `
+<section
+  class="featureSection image-left "
+>
+  <div
+    class="container"
+  >
+    <div
+      class="imageWrapper"
+    >
+      <img
+        alt="Test image description"
+        class="image"
+        src="/test-image.jpg"
+      />
+    </div>
+    <div
+      class="content"
+    >
+      <h2
+        class="heading"
+      >
+        Test Feature Heading
+      </h2>
+      <p
+        class="bodyText"
+      >
+        This is the test body text for the feature section component.
+      </p>
+    </div>
+  </div>
+</section>
+`;
+
+exports[`FeatureSection Snapshot Tests should match snapshot with image-right layout 1`] = `
+<section
+  class="featureSection image-right "
+>
+  <div
+    class="container"
+  >
+    <div
+      class="imageWrapper"
+    >
+      <img
+        alt="Test image description"
+        class="image"
+        src="/test-image.jpg"
+      />
+    </div>
+    <div
+      class="content"
+    >
+      <h2
+        class="heading"
+      >
+        Test Feature Heading
+      </h2>
+      <p
+        class="bodyText"
+      >
+        This is the test body text for the feature section component.
+      </p>
+    </div>
+  </div>
+</section>
+`;
