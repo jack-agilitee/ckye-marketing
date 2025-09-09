@@ -3,6 +3,7 @@
 import React, { useState } from 'react';
 import Button from '@/components/atoms/Button/Button';
 import NavTextItem from '@/components/atoms/NavTextItem/NavTextItem';
+import FeatureSection from '@/components/organisms/FeatureSection/FeatureSection';
 import styles from './showcase.module.scss';
 
 // Code Example Component
@@ -87,6 +88,8 @@ function ComponentWrapper({
       importCode = `import Button from '@/components/atoms/Button/Button';`;
     } else if (id === 'nav-text-item') {
       importCode = `import NavTextItem from '@/components/atoms/NavTextItem/NavTextItem';`;
+    } else if (id === 'feature-section') {
+      importCode = `import FeatureSection from '@/components/organisms/FeatureSection/FeatureSection';`;
     }
     await navigator.clipboard.writeText(importCode);
   };
@@ -539,6 +542,78 @@ function Navigation() {
   );
 }
 
+// FeatureSection Showcase
+function FeatureSectionShowcase() {
+  const sampleContent = {
+    heading: "Where is the AI revolution I was promised?",
+    bodyText: "The reality is enterprises are only one step away from unlocking millions in ROI this budget year, by leveraging the AI tools you already have in place.",
+    image: {
+      src: "/content/feature.png",
+      alt: "AI technology illustration showing modern business transformation"
+    }
+  };
+
+  return (
+    <ComponentWrapper
+      id="feature-section"
+      title="FeatureSection"
+      description="Feature section organism with image and text content in two layout variants"
+      githubUrl="/src/components/organisms/FeatureSection/FeatureSection.tsx"
+      data-testid="showcase-feature-section"
+    >
+      {/* Layout Variants Section */}
+      <div className={styles.showcaseSection} data-testid="feature-section-variants">
+        <h3>Layout Variants</h3>
+        <div className={styles.showcaseExamples}>
+          <div className={styles.showcaseExample} data-testid="feature-section-image-left">
+            <div className={styles.showcasePreview} style={{ overflow: 'visible' }}>
+              <FeatureSection
+                heading={sampleContent.heading}
+                bodyText={sampleContent.bodyText}
+                image={sampleContent.image}
+                layout="image-left"
+              />
+            </div>
+            <CodeExample>
+              {`<FeatureSection
+  heading="Where is the AI revolution I was promised?"
+  bodyText="The reality is enterprises are only one step away from unlocking millions in ROI this budget year, by leveraging the AI tools you already have in place."
+  image={{
+    src: "/content/feature.png",
+    alt: "AI technology illustration showing modern business transformation"
+  }}
+  layout="image-left"
+/>`}
+            </CodeExample>
+          </div>
+
+          <div className={styles.showcaseExample} data-testid="feature-section-image-right">
+            <div className={styles.showcasePreview} style={{ overflow: 'visible' }}>
+              <FeatureSection
+                heading={sampleContent.heading}
+                bodyText={sampleContent.bodyText}
+                image={sampleContent.image}
+                layout="image-right"
+              />
+            </div>
+            <CodeExample>
+              {`<FeatureSection
+  heading="Where is the AI revolution I was promised?"
+  bodyText="The reality is enterprises are only one step away from unlocking millions in ROI this budget year, by leveraging the AI tools you already have in place."
+  image={{
+    src: "/content/feature.png",
+    alt: "AI technology illustration showing modern business transformation"
+  }}
+  layout="image-right"
+/>`}
+            </CodeExample>
+          </div>
+        </div>
+      </div>
+    </ComponentWrapper>
+  );
+}
+
 // Main Showcase Page
 export default function ShowcasePage() {
   return (
@@ -554,6 +629,13 @@ export default function ShowcasePage() {
           <div className={styles.showcaseGrid}>
             <ButtonShowcase />
             <NavTextItemShowcase />
+          </div>
+        </section>
+        
+        <section id="organisms" data-testid="showcase-organisms">
+          <h2>Organisms</h2>
+          <div className={styles.showcaseGrid}>
+            <FeatureSectionShowcase />
           </div>
         </section>
       </main>
