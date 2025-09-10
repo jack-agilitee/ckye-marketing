@@ -4,6 +4,7 @@ import React from 'react';
 import Button from '@/components/atoms/Button/Button';
 import NavTextItem from '@/components/atoms/NavTextItem/NavTextItem';
 import { Metrics } from '@/components/molecules/Metrics/Metrics';
+import { CompatibleWith } from '@/components/molecules/CompatibleWith/CompatibleWith';
 import FeatureSection from '@/components/organisms/FeatureSection/FeatureSection';
 import styles from './showcase.module.scss';
 
@@ -226,6 +227,40 @@ export default function ShowcasePage() {
                 ]}
                 gradientColor="blue"
               />
+            </div>
+          </ShowcaseItem>
+
+          <ShowcaseItem 
+            title="CompatibleWith - Default"
+            code={`<CompatibleWith />`}
+          >
+            <div data-testid="compatible-with-default">
+              <CompatibleWith />
+            </div>
+          </ShowcaseItem>
+
+          <ShowcaseItem 
+            title="CompatibleWith - With Custom Class"
+            code={`<CompatibleWith className="custom-spacing" />`}
+          >
+            <div data-testid="compatible-with-custom-class">
+              <CompatibleWith className="custom-spacing" />
+            </div>
+          </ShowcaseItem>
+
+          <ShowcaseItem 
+            title="CompatibleWith - In Context"
+            code={`<div style={{ backgroundColor: '#f8f9fa', padding: '2rem' }}>
+  <h3>Supported AI Models</h3>
+  <CompatibleWith />
+</div>`}
+          >
+            <div 
+              data-testid="compatible-with-context"
+              className={styles.showcaseItem__compatibleWrapper}
+            >
+              <h3>Supported AI Models</h3>
+              <CompatibleWith />
             </div>
           </ShowcaseItem>
         </section>

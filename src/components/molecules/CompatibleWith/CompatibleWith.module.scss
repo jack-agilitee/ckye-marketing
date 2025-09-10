@@ -1,0 +1,59 @@
+@import '../../../styles/variables';
+@import '../../../styles/mixins';
+
+.compatible-with {
+  background-color: $color-grey-800;
+  
+  &__container {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: $spacing-md-sm;
+    
+    @include breakpoint(medium) {
+      gap: $spacing-md;
+    }
+  }
+  
+  &__header {
+    font-family: $font-family-inter;
+    font-size: $font-size-xs;
+    font-weight: $font-weight-bold;
+    line-height: $line-height-base;
+    color: $color-grey-200;
+    margin: 0;
+    flex-shrink: 0;
+    
+    @include breakpoint(medium) {
+      font-size: $font-size-base;
+    }
+  }
+  
+  &__models {
+    display: flex;
+    flex-wrap: wrap;
+    gap: $spacing-lg;
+    align-items: center;
+    
+    @include breakpoint(medium) {
+      flex-wrap: nowrap;
+      gap: $spacing-2xl;
+    }
+  }
+  
+  &__model {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+  
+  &__logo {
+    width: auto;
+    height: $spacing-md;
+    object-fit: contain;
+    
+    @include breakpoint(medium) {
+      height: $spacing-lg;
+    }
+  }
+}
