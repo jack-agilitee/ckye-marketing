@@ -1,357 +1,291 @@
-// showcase.module.scss
 @import '@/styles/variables';
 @import '@/styles/mixins';
 
+// Main showcase container
 .showcase {
   display: flex;
   flex-direction: column;
-  gap: 2rem;
-  padding: 2rem;
-  max-width: 1200px;
-  margin: 0 auto;
-  
-  @include breakpoint(medium) {
-    padding: 1rem;
-  }
-  
-  &Header {
+  min-height: 100vh;
+  background-color: $color-background;
+
+  &__header {
     text-align: center;
-    padding: 2rem 0;
-    border-bottom: 1px solid #e5e5e5;
+    padding: $spacing-3xl $spacing-lg;
+    background-color: $color-showcase-bg;
+    border-bottom: 1px solid $color-grey-200;
     
     h1 {
-      font-size: 2.5rem;
-      font-weight: 600;
-      margin-bottom: 0.5rem;
-      color: #08090a;
+      font-size: $font-size-h1;
+      font-weight: $font-weight-bold;
+      margin-bottom: $spacing-sm;
+      color: $color-text-primary;
     }
     
     p {
-      font-size: 1.125rem;
-      color: #8b8f97;
+      font-size: $font-size-lg;
+      color: $color-text-secondary;
       margin: 0;
     }
   }
   
-  &Content {
-    display: flex;
-    flex-direction: column;
-    gap: 3rem;
-    
-    section {
-      > h2 {
-        font-size: 2rem;
-        font-weight: 600;
-        margin-bottom: 1.5rem;
-        color: #08090a;
-        border-bottom: 2px solid #5193cf;
-        padding-bottom: 0.5rem;
-      }
-    }
-  }
-  
-  &Grid {
-    display: grid;
-    grid-template-columns: 1fr;
-    gap: 2rem;
-    
-    @include breakpoint(large) {
-      grid-template-columns: repeat(auto-fit, minmax(600px, 1fr));
-    }
-  }
-  
-  &Component {
-    background: #f7f8f8;
-    border: 1px solid #e5e5e5;
-    border-radius: 12px;
-    padding: 2rem;
-    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
-    
-    &Header {
-      margin-bottom: 1.5rem;
-      padding-bottom: 1rem;
-      border-bottom: 1px solid #e5e5e5;
-      
-      h2 {
-        font-size: 1.5rem;
-        font-weight: 600;
-        margin-bottom: 0.5rem;
-        color: #08090a;
-        border: none;
-        padding: 0;
-      }
-      
-      p {
-        font-size: 1rem;
-        color: #8b8f97;
-        margin-bottom: 1rem;
-      }
-    }
-    
-    &Content {
-      display: flex;
-      flex-direction: column;
-      gap: 2rem;
-    }
-    
-    &Footer {
-      margin-top: 1.5rem;
-      padding-top: 1rem;
-      border-top: 1px solid #e5e5e5;
-      display: flex;
-      gap: 0.75rem;
-    }
-  }
-  
-  &Links {
-    display: flex;
-    gap: 1rem;
-    flex-wrap: wrap;
-  }
-  
-  &Link {
-    display: inline-flex;
-    align-items: center;
-    padding: 0.5rem 1rem;
-    background-color: #28282c;
-    color: #f7f8f8;
-    text-decoration: none;
-    border-radius: 6px;
-    font-size: 0.875rem;
-    font-weight: 500;
-    transition: background-color 0.2s ease;
-    
-    &:hover {
-      background-color: #5193cf;
-    }
-  }
-  
-  &Section {
-    margin: 2rem 0;
-  }
-  
-  &Examples {
-    display: grid;
-    grid-template-columns: 1fr;
-    gap: 1.5rem;
+  &__content {
+    flex: 1;
+    padding: $spacing-2xl;
+    max-width: 1400px;
+    width: 100%;
+    margin: 0 auto;
     
     @include breakpoint(medium) {
-      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+      padding: $spacing-3xl;
     }
   }
   
-  &Example {
-    background: white;
-    border: 1px solid #e5e5e5;
-    border-radius: 8px;
-    overflow: hidden;
+  &__section {
+    margin-bottom: $spacing-4xl;
+    
+    &:last-child {
+      margin-bottom: 0;
+    }
   }
   
-  &Preview {
-    padding: 2rem;
-    border-bottom: 1px solid #e5e5e5;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    min-height: 80px;
-    background: #1e1e1e;
+  &__sectionTitle {
+    font-size: $font-size-h2;
+    font-weight: $font-weight-semibold;
+    color: $color-text-primary;
+    margin-bottom: $spacing-2xl;
+    padding-bottom: $spacing-md;
+    border-bottom: 2px solid $color-primary;
   }
   
-  &Button {
-    display: inline-flex;
-    align-items: center;
-    justify-content: center;
-    padding: 0.5rem 1rem;
-    background-color: #5193cf;
-    color: #f7f8f8;
-    border: none;
-    border-radius: 6px;
-    font-size: 0.875rem;
-    font-weight: 500;
-    cursor: pointer;
-    transition: background-color 0.2s ease;
+  &__placeholder {
+    color: $color-text-secondary;
+    font-style: italic;
+    padding: $spacing-2xl;
+    text-align: center;
+    background-color: $color-background-elevated;
+    border-radius: $border-radius-md;
+  }
+}
+
+// Navigation bar
+.showcaseNav {
+  position: sticky;
+  top: 0;
+  z-index: 100;
+  background-color: $color-showcase-bg;
+  border-bottom: 1px solid $color-grey-200;
+  padding: $spacing-md $spacing-lg;
+  display: flex;
+  gap: $spacing-lg;
+  justify-content: center;
+  flex-wrap: wrap;
+  
+  &__link {
+    color: $color-text-secondary;
     text-decoration: none;
+    font-weight: $font-weight-medium;
+    padding: $spacing-sm $spacing-md;
+    border-radius: $border-radius-sm;
+    transition: $transition-colors;
     
     &:hover {
-      background-color: #4a85c1;
+      color: $color-primary;
+      background-color: $color-primary-light;
     }
     
     &:focus-visible {
-      outline: 2px solid #5193cf;
-      outline-offset: 2px;
+      @include focus-visible;
     }
   }
 }
 
-// Code Example Styles
-.codeExample {
-  background: #1e1e1e;
-  border-radius: 8px;
+// Individual showcase item
+.showcaseItem {
+  margin-bottom: $spacing-3xl;
+  background-color: $color-showcase-bg;
+  border: 1px solid $color-grey-200;
+  border-radius: $border-radius-lg;
   overflow: hidden;
   
-  &Header {
-    background: #2d2d2d;
-    padding: 0.75rem 1rem;
+  &__title {
+    font-size: $font-size-xl;
+    font-weight: $font-weight-semibold;
+    color: $color-text-primary;
+    padding: $spacing-lg;
+    background-color: $color-background-elevated;
+    border-bottom: 1px solid $color-grey-200;
+    margin: 0;
+  }
+  
+  &__preview {
+    padding: $spacing-2xl;
+    background-color: $color-showcase-bg;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    min-height: 120px;
+    border-bottom: 1px solid $color-grey-200;
+    overflow: hidden; // Contain any overflow from child elements
+  }
+  
+  // Special wrappers for specific components
+  &__metricsWrapper {
+    width: 100%;
+    background: linear-gradient(180deg, $color-gradient-background-start 0%, $color-grey-800 100%);
+    padding: $spacing-3xl;
+    margin: -$spacing-2xl;
+    
+    @include breakpoint(medium) {
+      padding: $spacing-4xl;
+    }
+  }
+  
+  &__featureWrapper {
+    width: 100%;
+    margin: -$spacing-2xl;
+    // Remove overflow: visible to let parent's overflow: hidden contain it
+  }
+}
+
+// Code example component
+.codeExample {
+  background-color: $color-grey-900;
+  
+  &__header {
+    background-color: $color-grey-800;
+    padding: $spacing-sm $spacing-lg;
     display: flex;
     justify-content: space-between;
     align-items: center;
-    border-bottom: 1px solid #3d3d3d;
+    border-bottom: 1px solid $color-grey-600;
   }
   
-  &Language {
-    font-size: 0.75rem;
-    color: #8b8f97;
+  &__language {
+    font-size: $font-size-sm;
+    color: $color-grey-400;
     text-transform: uppercase;
-    font-weight: 600;
-    letter-spacing: 0.05em;
+    font-weight: $font-weight-semibold;
+    letter-spacing: $letter-spacing-wide;
   }
   
-  &Actions {
-    display: flex;
-    gap: 0.5rem;
-  }
-}
-
-.codeBlock {
-  background: #1e1e1e;
-  color: #d4d4d4;
-  margin: 0;
-  padding: 1rem;
-  font-family: 'Consolas', 'Monaco', 'Courier New', monospace;
-  font-size: 0.875rem;
-  line-height: 1.5;
-  overflow-x: auto;
-  border-radius: 0 0 8px 8px;
-  
-  &::-webkit-scrollbar {
-    height: 8px;
-  }
-  
-  &::-webkit-scrollbar-track {
-    background: #2d2d2d;
+  &__button {
+    padding: $spacing-xs $spacing-md;
+    background-color: $color-primary;
+    color: $color-white;
+    border: none;
+    border-radius: $border-radius-sm;
+    font-size: $font-size-sm;
+    font-weight: $font-weight-medium;
+    cursor: pointer;
+    transition: $transition-colors;
+    
+    &:hover {
+      background-color: $color-primary-dark;
+    }
+    
+    &:focus-visible {
+      @include focus-visible;
+    }
   }
   
-  &::-webkit-scrollbar-thumb {
-    background: #5193cf;
-    border-radius: 4px;
-  }
-}
-
-.codeContent {
-  color: inherit;
-  font-family: inherit;
-  font-size: inherit;
-  background: none;
-  padding: 0;
-}
-
-.codeButton {
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
-  padding: 0.25rem 0.75rem;
-  background-color: #5193cf;
-  color: #f7f8f8;
-  border: none;
-  border-radius: 4px;
-  font-size: 0.75rem;
-  font-weight: 500;
-  cursor: pointer;
-  transition: background-color 0.2s ease;
-  
-  &:hover {
-    background-color: #4a85c1;
+  &__block {
+    margin: 0;
+    padding: $spacing-lg;
+    overflow-x: auto;
+    
+    &::-webkit-scrollbar {
+      height: 8px;
+    }
+    
+    &::-webkit-scrollbar-track {
+      background: $color-grey-800;
+    }
+    
+    &::-webkit-scrollbar-thumb {
+      background: $color-primary;
+      border-radius: $border-radius-sm;
+    }
   }
   
-  &:focus-visible {
-    outline: 2px solid #5193cf;
-    outline-offset: 2px;
+  &__content {
+    color: $color-white;
+    font-family: $font-family-mono;
+    font-size: $font-size-sm;
+    line-height: $line-height-relaxed;
+    white-space: pre;
   }
 }
 
 // Responsive adjustments
 @include breakpoint(small) {
   .showcase {
-    &Header {
+    &__header {
+      padding: $spacing-2xl $spacing-md;
+      
       h1 {
-        font-size: 2rem;
+        font-size: $font-size-h2;
       }
       
       p {
-        font-size: 1rem;
+        font-size: $font-size-base;
       }
     }
     
-    &Component {
-      padding: 1.5rem;
-      
-      &Header {
-        h2 {
-          font-size: 1.25rem;
-        }
-      }
+    &__content {
+      padding: $spacing-xl;
     }
     
-    &Examples {
-      grid-template-columns: 1fr;
+    &__sectionTitle {
+      font-size: $font-size-h3;
+    }
+  }
+  
+  .showcaseItem {
+    &__title {
+      font-size: $font-size-lg;
+      padding: $spacing-md;
     }
     
-    &Preview {
-      padding: 1.5rem;
-      min-height: 60px;
+    &__preview {
+      padding: $spacing-lg;
     }
   }
 }
 
 // Print styles
 @media print {
+  .showcaseNav {
+    display: none;
+  }
+  
   .showcase {
-    &Component {
-      box-shadow: none;
-      border: 1px solid #000;
-      page-break-inside: avoid;
+    &__header {
+      border-bottom: 2px solid #000;
     }
+  }
+  
+  .showcaseItem {
+    page-break-inside: avoid;
+    border: 2px solid #000;
     
-    &Button,
-    .codeButton {
-      background: transparent !important;
-      color: #000 !important;
-      border: 1px solid #000;
+    &__preview {
+      background: white !important;
     }
   }
   
   .codeExample {
     background: #f5f5f5 !important;
     
-    &Header {
+    &__header {
       background: #e5e5e5 !important;
-      color: #000 !important;
-    }
-  }
-}
-
-// High contrast mode support
-@media (prefers-contrast: high) {
-  .showcase {
-    &Component {
-      border: 2px solid #000;
     }
     
-    &Button,
-    .codeButton,
-    &Link {
-      border: 2px solid currentColor;
+    &__button {
+      display: none;
     }
-  }
-}
-
-// Reduced motion support
-@media (prefers-reduced-motion: reduce) {
-  .showcase {
-    &Button,
-    .codeButton,
-    &Link {
-      transition: none;
+    
+    &__content {
+      color: #000 !important;
     }
   }
 }
