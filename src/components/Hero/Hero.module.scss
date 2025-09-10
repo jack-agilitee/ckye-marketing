@@ -1,0 +1,169 @@
+@import '../../styles/variables';
+@import '../../styles/mixins';
+
+.hero {
+  position: relative;
+  background-color: $color-background;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  overflow: hidden;
+  padding: $spacing-5xl 0 104px;
+
+  @include breakpoint(medium) {
+    padding: $spacing-5xl 0 $spacing-8xl;
+  }
+
+  @include breakpoint(large) {
+    padding: $spacing-5xl 0 144px;
+  }
+
+  &__container {
+    width: 100%;
+    margin: 0 auto;
+    padding: 0 $spacing-2xl;
+    position: relative;
+    z-index: 1;
+
+    @include breakpoint(medium) {
+      padding: 0 $spacing-4xl;
+    }
+  }
+
+  &__content {
+    margin: 0 auto;
+    display: flex;
+    flex-direction: column;
+    gap: $spacing-2xl;
+    align-items: flex-start;
+    margin-bottom: -$spacing-2xl;
+
+    @include breakpoint(medium) {
+      margin-bottom: -$spacing-4xl;
+    }
+
+    @include breakpoint(large) {
+      margin-bottom: -$spacing-5xl;
+    }
+  }
+
+  &__text {
+    display: flex;
+    flex-direction: column;
+    gap: $spacing-lg;
+  }
+
+  &__tagline {
+    color: $color-primary;
+    font-family: $font-family-inter;
+    font-size: $font-size-base;
+    font-weight: $font-weight-bold;
+    line-height: $line-height-feature-body;
+    letter-spacing: $letter-spacing-feature-body-mobile;
+    margin: 0;
+
+    @include breakpoint(medium) {
+      font-size: $font-size-md;
+      letter-spacing: $letter-spacing-feature-body-tablet;
+    }
+  }
+
+  &__heading {
+    color: $color-text-primary;
+    font-family: $font-family-inter;
+    font-size: 2rem;
+    font-weight: $font-weight-medium;
+    line-height: $line-height-tight;
+    letter-spacing: $letter-spacing-feature-h1-mobile;
+    margin: 0;
+
+    @include breakpoint(medium) {
+      font-size: $font-size-h1;
+      letter-spacing: $letter-spacing-feature-h1-desktop;
+    }
+
+    @include breakpoint(large) {
+      font-size: 4rem;
+      letter-spacing: $letter-spacing-hero-h1-desktop;
+    }
+  }
+
+  &__description {
+    color: $color-text-secondary;
+    font-family: $font-family-inter;
+    font-size: $font-size-md;
+    font-weight: $font-weight-medium;
+    line-height: $line-height-feature-body;
+    letter-spacing: $letter-spacing-feature-body-tablet;
+    margin: 0;
+  }
+
+  &__cta {
+    background-color: $color-white;
+    color: $color-text-inverse;
+    padding: $spacing-md-sm $spacing-md;
+    border-radius: $border-radius-xl;
+    font-size: $font-size-base;
+    font-weight: $font-weight-medium;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: $spacing-sm;
+    transition: $transition-colors;
+    border: none;
+    cursor: pointer;
+    min-height: $touch-target-min-height;
+
+    &:hover {
+      background-color: rgba($color-white, 0.9);
+      transform: translateY(-1px);
+      transition: all 0.2s ease;
+    }
+
+    &:focus {
+      outline: 2px solid $color-primary;
+      outline-offset: 2px;
+    }
+
+    &:active {
+      transform: translateY(0);
+    }
+  }
+
+  &__imageWrapper {
+    width: 100%;
+    margin-top: -$spacing-2xl;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+
+    @include breakpoint(medium) {
+      margin-top: -$spacing-4xl;
+    }
+
+    @include breakpoint(large) {
+      margin-top: -$spacing-5xl;
+    }
+  }
+
+  &__image {
+    width: 100%;
+    display: block;
+    position: relative;
+
+    @include breakpoint(large) {
+      width: 1280px;
+    }
+  }
+
+  &__img {
+    width: 100%;
+    height: auto;
+    display: block;
+    object-fit: contain;
+    background-position: center;
+    background-repeat: no-repeat;
+  }
+}

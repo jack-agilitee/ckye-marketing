@@ -6,6 +6,7 @@ import NavTextItem from '@/components/atoms/NavTextItem/NavTextItem';
 import { Metrics } from '@/components/molecules/Metrics/Metrics';
 import { CompatibleWith } from '@/components/molecules/CompatibleWith/CompatibleWith';
 import FeatureSection from '@/components/organisms/FeatureSection/FeatureSection';
+import Hero from '@/components/Hero/Hero';
 import styles from './showcase.module.scss';
 
 // Navigation component
@@ -268,6 +269,37 @@ export default function ShowcasePage() {
         {/* Organisms Section */}
         <section id="organisms" className={styles.showcase__section}>
           <h2 className={styles.showcase__sectionTitle}>Organisms</h2>
+          
+          <ShowcaseItem 
+            title="Hero - Default"
+            code={`<Hero data-testid="hero-showcase" />`}
+          >
+            <div className={styles.showcaseItem__heroWrapper} data-testid="hero-showcase">
+              <Hero />
+            </div>
+          </ShowcaseItem>
+
+          <ShowcaseItem 
+            title="Hero - With Custom Content"
+            code={`<Hero 
+  tagline="/ enterprise /"
+  heading="Scale Your Engineering with AI"
+  description="Deploy governed AI agents that deliver production-ready code."
+  ctaText="Book Demo"
+  onCtaClick={() => console.log('Demo requested')}
+  data-testid="hero-showcase-custom"
+/>`}
+          >
+            <div className={styles.showcaseItem__heroWrapper} data-testid="hero-showcase-custom">
+              <Hero 
+                tagline="/ enterprise /"
+                heading="Scale Your Engineering with AI"
+                description="Deploy governed AI agents that deliver production-ready code."
+                ctaText="Book Demo"
+                onCtaClick={() => console.log('Demo requested')}
+              />
+            </div>
+          </ShowcaseItem>
           
           <ShowcaseItem 
             title="FeatureSection - Image Left"

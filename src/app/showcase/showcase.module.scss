@@ -145,6 +145,17 @@
     margin: -$spacing-2xl;
     // Remove overflow: visible to let parent's overflow: hidden contain it
   }
+  
+  &__heroWrapper {
+    width: 100%;
+    margin: -$spacing-2xl;
+    background-color: $color-background;
+    
+    // Ensure the hero displays properly in showcase
+    @include breakpoint(medium) {
+      margin: -$spacing-2xl;
+    }
+  }
 }
 
 // Code example component
