@@ -16,3 +16,12 @@
     outline-offset: 2px;
   }
 }
+
+@mixin gradient-text($gradient) {
+  background: #{$gradient};
+  background-clip: text;
+  -webkit-background-clip: text;
+  -moz-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  color: transparent; // Fallback for browsers that don't support gradient text
+}

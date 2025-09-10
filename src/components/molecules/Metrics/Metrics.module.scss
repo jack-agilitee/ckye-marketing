@@ -2,8 +2,6 @@
 @import '../../../styles/mixins';
 
 .metrics {
-  min-height: 100vh;
-  background: linear-gradient(180deg, $color-gradient-background-start 0%, $color-grey-800 100%);
   padding: $spacing-4xl;
   display: flex;
   align-items: center;
@@ -82,10 +80,6 @@
     line-height: $line-height-tight;
     margin: 0;
     
-    // Gradient text
-    background-clip: text;
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
     
     @include breakpoint(medium) {
       font-size: 5rem; // 80px tablet
@@ -132,26 +126,17 @@
   // Gradient color variants
   .gradient {
     &--blue {
-      background: linear-gradient(180deg, $color-white 0%, $color-primary 100%);
-      background-clip: text;
-      -webkit-background-clip: text;
-      -webkit-text-fill-color: transparent;
+      @include gradient-text(linear-gradient(180deg, $color-white 0%, $color-primary 100%));
     }
     
     &--orange {
-      background: linear-gradient(180deg, $color-white 0%, $color-gradient-orange-end 100%);
-      background-clip: text;
-      -webkit-background-clip: text;
-      -webkit-text-fill-color: transparent;
+      @include gradient-text(linear-gradient(180deg, $color-white 0%, $color-gradient-orange-end 100%));
     }
   }
 
   // Custom gradient via CSS variable
   &__value:not(.gradient--blue):not(.gradient--orange) {
-    background: var(--gradient-custom, linear-gradient(180deg, $color-white 0%, $color-gradient-orange-end 100%));
-    background-clip: text;
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
+    @include gradient-text(var(--gradient-custom, linear-gradient(180deg, $color-white 0%, $color-gradient-orange-end 100%)));
   }
 
   // Double variant adjustments
