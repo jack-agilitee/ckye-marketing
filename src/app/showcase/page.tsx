@@ -4,6 +4,7 @@ import React, { useState } from 'react';
 import Button from '@/components/atoms/Button/Button';
 import NavTextItem from '@/components/atoms/NavTextItem/NavTextItem';
 import FeatureSection from '@/components/organisms/FeatureSection/FeatureSection';
+import { Metrics } from '@/components/molecules/Metrics/Metrics';
 import styles from './showcase.module.scss';
 
 // Code Example Component
@@ -90,6 +91,8 @@ function ComponentWrapper({
       importCode = `import NavTextItem from '@/components/atoms/NavTextItem/NavTextItem';`;
     } else if (id === 'feature-section') {
       importCode = `import FeatureSection from '@/components/organisms/FeatureSection/FeatureSection';`;
+    } else if (id === 'metrics') {
+      importCode = `import { Metrics } from '@/components/molecules/Metrics/Metrics';`;
     }
     await navigator.clipboard.writeText(importCode);
   };
@@ -614,6 +617,356 @@ function FeatureSectionShowcase() {
   );
 }
 
+// Metrics Showcase
+function MetricsShowcase() {
+  const singleMetricsData = [
+    {
+      title: "Total Revenue",
+      value: "$2.4M",
+      description: "Revenue generated this quarter"
+    },
+    {
+      title: "Active Users",
+      value: "12.8K",
+      description: "Monthly active users"
+    },
+    {
+      title: "Conversion Rate",
+      value: "8.2%",
+      description: "Lead to customer conversion"
+    }
+  ];
+
+  const doubleMetricsData = [
+    {
+      title: "Revenue Growth",
+      value: "$2.4M",
+      secondaryValue: "+24%",
+      description: "Current quarter vs previous"
+    },
+    {
+      title: "User Engagement",
+      value: "12.8K",
+      secondaryValue: "+15%",
+      description: "Active users this month"
+    },
+    {
+      title: "Performance Score",
+      value: "94.5",
+      secondaryValue: "+2.1",
+      description: "Overall system performance"
+    }
+  ];
+
+  return (
+    <ComponentWrapper
+      id="metrics"
+      title="Metrics"
+      description="Metrics display component with single and double value variants, supporting custom gradient colors"
+      githubUrl="/src/components/molecules/Metrics/Metrics.tsx"
+      data-testid="showcase-metrics"
+    >
+      {/* Variant Types Section */}
+      <div className={styles.showcaseSection} data-testid="metrics-variants">
+        <h3>Variant Types</h3>
+        <div className={styles.showcaseExamples}>
+          <div className={styles.showcaseExample} data-testid="metrics-single">
+            <div className={styles.showcasePreview} style={{ overflow: 'visible' }}>
+              <Metrics
+                variant="single"
+                metrics={singleMetricsData}
+                gradientColor="orange"
+              />
+            </div>
+            <CodeExample>
+              {`<Metrics
+  variant="single"
+  metrics={[
+    {
+      title: "Total Revenue",
+      value: "$2.4M",
+      description: "Revenue generated this quarter"
+    },
+    {
+      title: "Active Users",
+      value: "12.8K",
+      description: "Monthly active users"
+    },
+    {
+      title: "Conversion Rate",
+      value: "8.2%",
+      description: "Lead to customer conversion"
+    }
+  ]}
+  gradientColor="orange"
+/>`}
+            </CodeExample>
+          </div>
+
+          <div className={styles.showcaseExample} data-testid="metrics-double">
+            <div className={styles.showcasePreview} style={{ overflow: 'visible' }}>
+              <Metrics
+                variant="double"
+                metrics={doubleMetricsData}
+                gradientColor="blue"
+              />
+            </div>
+            <CodeExample>
+              {`<Metrics
+  variant="double"
+  metrics={[
+    {
+      title: "Revenue Growth",
+      value: "$2.4M",
+      secondaryValue: "+24%",
+      description: "Current quarter vs previous"
+    },
+    {
+      title: "User Engagement",
+      value: "12.8K",
+      secondaryValue: "+15%",
+      description: "Active users this month"
+    },
+    {
+      title: "Performance Score",
+      value: "94.5",
+      secondaryValue: "+2.1",
+      description: "Overall system performance"
+    }
+  ]}
+  gradientColor="blue"
+/>`}
+            </CodeExample>
+          </div>
+        </div>
+      </div>
+
+      {/* Gradient Color Options Section */}
+      <div className={styles.showcaseSection} data-testid="metrics-gradient-colors">
+        <h3>Gradient Color Options</h3>
+        <div className={styles.showcaseExamples}>
+          <div className={styles.showcaseExample} data-testid="metrics-gradient-orange">
+            <div className={styles.showcasePreview} style={{ overflow: 'visible' }}>
+              <Metrics
+                variant="single"
+                metrics={[
+                  {
+                    title: "Sales Target",
+                    value: "85%",
+                    description: "Monthly goal achievement"
+                  }
+                ]}
+                gradientColor="orange"
+              />
+            </div>
+            <CodeExample>
+              {`<Metrics
+  variant="single"
+  metrics={[{
+    title: "Sales Target",
+    value: "85%",
+    description: "Monthly goal achievement"
+  }]}
+  gradientColor="orange"
+/>`}
+            </CodeExample>
+          </div>
+
+          <div className={styles.showcaseExample} data-testid="metrics-gradient-blue">
+            <div className={styles.showcasePreview} style={{ overflow: 'visible' }}>
+              <Metrics
+                variant="single"
+                metrics={[
+                  {
+                    title: "Customer Satisfaction",
+                    value: "4.8",
+                    description: "Average rating this month"
+                  }
+                ]}
+                gradientColor="blue"
+              />
+            </div>
+            <CodeExample>
+              {`<Metrics
+  variant="single"
+  metrics={[{
+    title: "Customer Satisfaction",
+    value: "4.8",
+    description: "Average rating this month"
+  }]}
+  gradientColor="blue"
+/>`}
+            </CodeExample>
+          </div>
+
+          <div className={styles.showcaseExample} data-testid="metrics-gradient-custom">
+            <div className={styles.showcasePreview} style={{ overflow: 'visible' }}>
+              <Metrics
+                variant="single"
+                metrics={[
+                  {
+                    title: "System Uptime",
+                    value: "99.9%",
+                    description: "Availability this quarter"
+                  }
+                ]}
+                gradientColor="#22c55e"
+              />
+            </div>
+            <CodeExample>
+              {`<Metrics
+  variant="single"
+  metrics={[{
+    title: "System Uptime",
+    value: "99.9%",
+    description: "Availability this quarter"
+  }]}
+  gradientColor="#22c55e"
+/>`}
+            </CodeExample>
+          </div>
+        </div>
+      </div>
+
+      {/* Double Values with Different Colors Section */}
+      <div className={styles.showcaseSection} data-testid="metrics-double-colors">
+        <h3>Double Values with Different Colors</h3>
+        <div className={styles.showcaseExamples}>
+          <div className={styles.showcaseExample} data-testid="metrics-double-orange">
+            <div className={styles.showcasePreview} style={{ overflow: 'visible' }}>
+              <Metrics
+                variant="double"
+                metrics={[
+                  {
+                    title: "Marketing ROI",
+                    value: "$156K",
+                    secondaryValue: "+32%",
+                    description: "Return on marketing investment"
+                  }
+                ]}
+                gradientColor="orange"
+              />
+            </div>
+            <CodeExample>
+              {`<Metrics
+  variant="double"
+  metrics={[{
+    title: "Marketing ROI",
+    value: "$156K",
+    secondaryValue: "+32%",
+    description: "Return on marketing investment"
+  }]}
+  gradientColor="orange"
+/>`}
+            </CodeExample>
+          </div>
+
+          <div className={styles.showcaseExample} data-testid="metrics-double-custom">
+            <div className={styles.showcasePreview} style={{ overflow: 'visible' }}>
+              <Metrics
+                variant="double"
+                metrics={[
+                  {
+                    title: "Team Productivity",
+                    value: "127%",
+                    secondaryValue: "+8%",
+                    description: "Productivity index vs baseline"
+                  }
+                ]}
+                gradientColor="#8b5cf6"
+              />
+            </div>
+            <CodeExample>
+              {`<Metrics
+  variant="double"
+  metrics={[{
+    title: "Team Productivity",
+    value: "127%",
+    secondaryValue: "+8%",
+    description: "Productivity index vs baseline"
+  }]}
+  gradientColor="#8b5cf6"
+/>`}
+            </CodeExample>
+          </div>
+        </div>
+      </div>
+
+      {/* Usage Examples Section */}
+      <div className={styles.showcaseSection} data-testid="metrics-usage-examples">
+        <h3>Usage Examples</h3>
+        
+        <CodeExample language="tsx" collapsible={true}>
+          {`import { Metrics, MetricData } from '@/components/molecules/Metrics/Metrics';
+
+function DashboardPage() {
+  const businessMetrics: MetricData[] = [
+    {
+      title: "Monthly Revenue",
+      value: "$245K",
+      secondaryValue: "+18%",
+      description: "Revenue growth vs last month"
+    },
+    {
+      title: "New Customers",
+      value: "1,247",
+      secondaryValue: "+24%",
+      description: "Customer acquisition this month"
+    },
+    {
+      title: "Churn Rate",
+      value: "2.1%",
+      secondaryValue: "-0.3%",
+      description: "Customer retention improvement"
+    }
+  ];
+
+  const performanceMetrics: MetricData[] = [
+    {
+      title: "Page Load Time",
+      value: "1.2s",
+      description: "Average page load speed"
+    },
+    {
+      title: "API Response",
+      value: "245ms",
+      description: "Average API response time"
+    },
+    {
+      title: "Error Rate",
+      value: "0.02%",
+      description: "System error percentage"
+    }
+  ];
+
+  return (
+    <div>
+      <section>
+        <h2>Business Metrics</h2>
+        <Metrics
+          variant="double"
+          metrics={businessMetrics}
+          gradientColor="blue"
+        />
+      </section>
+      
+      <section>
+        <h2>Performance Metrics</h2>
+        <Metrics
+          variant="single"
+          metrics={performanceMetrics}
+          gradientColor="#22c55e"
+        />
+      </section>
+    </div>
+  );
+}`}
+        </CodeExample>
+      </div>
+    </ComponentWrapper>
+  );
+}
+
 // Main Showcase Page
 export default function ShowcasePage() {
   return (
@@ -629,6 +982,13 @@ export default function ShowcasePage() {
           <div className={styles.showcaseGrid}>
             <ButtonShowcase />
             <NavTextItemShowcase />
+          </div>
+        </section>
+
+        <section id="molecules" data-testid="showcase-molecules">
+          <h2>Molecules</h2>
+          <div className={styles.showcaseGrid}>
+            <MetricsShowcase />
           </div>
         </section>
         

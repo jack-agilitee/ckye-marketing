@@ -1,0 +1,213 @@
+@import '../../../styles/variables';
+@import '../../../styles/mixins';
+
+.metrics {
+  min-height: 100vh;
+  background: linear-gradient(180deg, $color-gradient-background-start 0%, $color-grey-800 100%);
+  padding: $spacing-4xl;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  &__container {
+    max-width: 90rem; // 1440px
+    width: 100%;
+    margin: 0 auto;
+  }
+
+  &__row {
+    display: flex;
+    flex-direction: column;
+    gap: $spacing-2xl; // 40px on mobile
+    
+    @include breakpoint(medium) {
+      flex-direction: row;
+      justify-content: space-between;
+      gap: $spacing-3xl; // 48px on tablet
+    }
+    
+    @include breakpoint(large) {
+      gap: $spacing-3xl; // 48px on desktop
+    }
+  }
+
+  &__item {
+    flex: 1;
+    text-align: left;
+    width: 100%;
+  }
+
+  &__title {
+    font-family: $font-family-inter;
+    font-size: $font-size-md; // Mobile first - 18px
+    font-weight: $font-weight-bold;
+    color: $color-white;
+    letter-spacing: $letter-spacing-feature-body-tablet;
+    line-height: $line-height-feature-body;
+    margin-bottom: $spacing-sm;
+    
+    @include breakpoint(medium) {
+      font-size: $font-size-xl; // 24px tablet
+      letter-spacing: $letter-spacing-feature-body-desktop;
+      margin-bottom: $spacing-md;
+    }
+    
+    @include breakpoint(large) {
+      font-size: $font-size-h3; // 32px desktop
+      letter-spacing: $letter-spacing-metric-title;
+      margin-bottom: $spacing-lg;
+    }
+  }
+
+  &__values {
+    display: flex;
+    flex-direction: column;
+    gap: $spacing-xs;
+    margin-bottom: $spacing-sm;
+    
+    @include breakpoint(medium) {
+      margin-bottom: $spacing-md;
+    }
+    
+    @include breakpoint(large) {
+      margin-bottom: $spacing-lg;
+    }
+  }
+
+  &__value {
+    font-family: $font-family-inter;
+    font-size: 4rem; // Mobile first - 64px
+    font-weight: $font-weight-bold;
+    letter-spacing: $letter-spacing-metric-value-64;
+    line-height: $line-height-tight;
+    margin: 0;
+    
+    // Gradient text
+    background-clip: text;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    
+    @include breakpoint(medium) {
+      font-size: 5rem; // 80px tablet
+      letter-spacing: $letter-spacing-metric-value-80;
+    }
+    
+    @include breakpoint(large) {
+      font-size: 6.25rem; // 100px desktop
+      letter-spacing: $letter-spacing-metric-value-100;
+    }
+    
+    &--secondary {
+      font-size: $font-size-h3; // 32px mobile
+      letter-spacing: $letter-spacing-metric-value-32;
+      
+      @include breakpoint(large) {
+        font-size: $font-size-4xl; // 48px desktop
+        letter-spacing: $letter-spacing-metric-value-48;
+      }
+    }
+  }
+
+  &__description {
+    font-family: $font-family-inter;
+    font-size: $font-size-base; // Mobile first - 16px
+    font-weight: $font-weight-medium;
+    color: $color-grey-200;
+    letter-spacing: $letter-spacing-feature-body-mobile;
+    line-height: $line-height-feature-body;
+    margin: 0;
+    text-align: left;
+    
+    @include breakpoint(medium) {
+      font-size: $font-size-md; // 18px tablet
+      letter-spacing: $letter-spacing-feature-body-tablet;
+    }
+    
+    @include breakpoint(large) {
+      font-size: $font-size-xl; // 24px desktop
+      letter-spacing: $letter-spacing-feature-body-desktop;
+    }
+  }
+
+  // Gradient color variants
+  .gradient {
+    &--blue {
+      background: linear-gradient(180deg, $color-white 0%, $color-primary 100%);
+      background-clip: text;
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+    }
+    
+    &--orange {
+      background: linear-gradient(180deg, $color-white 0%, $color-gradient-orange-end 100%);
+      background-clip: text;
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+    }
+  }
+
+  // Custom gradient via CSS variable
+  &__value:not(.gradient--blue):not(.gradient--orange) {
+    background: var(--gradient-custom, linear-gradient(180deg, $color-white 0%, $color-gradient-orange-end 100%));
+    background-clip: text;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+  }
+
+  // Double variant adjustments
+  &--double {
+    .metrics__title {
+      @include breakpoint(medium) {
+        font-size: $font-size-md; // 18px tablet
+        letter-spacing: $letter-spacing-feature-body-tablet;
+      }
+      
+      @include breakpoint(large) {
+        font-size: $font-size-xl; // 24px desktop
+      }
+    }
+
+    .metrics__value {
+      font-size: $font-size-4xl; // 48px mobile
+      letter-spacing: $letter-spacing-metric-value-48;
+      
+      @include breakpoint(medium) {
+        font-size: $font-size-4xl; // 48px tablet
+      }
+      
+      @include breakpoint(large) {
+        font-size: 5rem; // 80px desktop
+        letter-spacing: $letter-spacing-metric-value-80;
+      }
+      
+      &--secondary {
+        font-size: $font-size-h3; // 32px all sizes
+        letter-spacing: $letter-spacing-metric-value-32;
+        
+        @include breakpoint(large) {
+          font-size: $font-size-4xl; // 48px desktop
+          letter-spacing: $letter-spacing-metric-value-48;
+        }
+      }
+    }
+
+    .metrics__description {
+      font-size: $font-size-xs; // 12px mobile
+      letter-spacing: $letter-spacing-normal;
+      
+      @include breakpoint(medium) {
+        font-size: $font-size-xs; // 12px tablet
+      }
+      
+      @include breakpoint(large) {
+        font-size: $font-size-xl; // 24px desktop
+        letter-spacing: $letter-spacing-feature-body-desktop;
+      }
+    }
+  }
+  
+  // Mobile specific padding
+  @media (max-width: 767px) {
+    padding: $spacing-4xl $spacing-md;
+  }
+}
