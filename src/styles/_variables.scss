@@ -50,6 +50,10 @@ $gradient-grey: linear-gradient(135deg, #1e1e1e 0%, #2a2a2a 100%);
 $gradient-orange: linear-gradient(135deg, #fb923c 0%, #f97316 100%);
 $gradient-primary: linear-gradient(135deg, #5193cf 0%, #4183bf 100%);
 
+// Gradient End Colors for Metrics
+$color-gradient-orange-end: #CFA751;
+$color-gradient-background-start: #141516;
+
 // -----------------------------------------------------------------------------
 // Typography
 // -----------------------------------------------------------------------------
@@ -126,6 +130,14 @@ $letter-spacing-feature-h1-mobile: -0.64px;    // 32px heading
 $letter-spacing-feature-body-desktop: -0.12px; // 24px body
 $letter-spacing-feature-body-tablet: -0.09px;  // 18px body
 $letter-spacing-feature-body-mobile: -0.08px;  // 16px body
+
+// Metrics Component Letter Spacing
+$letter-spacing-metric-value-100: -2px;        // 100px value
+$letter-spacing-metric-value-80: -1.6px;       // 80px value
+$letter-spacing-metric-value-64: -1.28px;      // 64px value
+$letter-spacing-metric-value-48: -0.96px;      // 48px value
+$letter-spacing-metric-value-32: -0.64px;      // 32px value
+$letter-spacing-metric-title: -0.16px;         // Title letter spacing
 
 // -----------------------------------------------------------------------------
 // Spacing
