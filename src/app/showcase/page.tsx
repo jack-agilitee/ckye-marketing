@@ -7,6 +7,7 @@ import { Metrics } from '@/components/molecules/Metrics/Metrics';
 import { CompatibleWith } from '@/components/molecules/CompatibleWith/CompatibleWith';
 import FeatureSection from '@/components/organisms/FeatureSection/FeatureSection';
 import Hero from '@/components/Hero/Hero';
+import NavigationHeader from '@/components/organisms/NavigationHeader/NavigationHeader';
 import styles from './showcase.module.scss';
 
 // Navigation component
@@ -269,6 +270,15 @@ export default function ShowcasePage() {
         {/* Organisms Section */}
         <section id="organisms" className={styles.showcase__section}>
           <h2 className={styles.showcase__sectionTitle}>Organisms</h2>
+          
+          <ShowcaseItem 
+            title="NavigationHeader"
+            code={`<NavigationHeader data-testid="navigation-header" />`}
+          >
+            <div className={styles.showcaseItem__navigationWrapper}>
+              <NavigationHeader data-testid="navigation-header" />
+            </div>
+          </ShowcaseItem>
           
           <ShowcaseItem 
             title="Hero - Default"
