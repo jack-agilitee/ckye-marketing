@@ -1,0 +1,225 @@
+@import '../../../styles/variables';
+@import '../../../styles/mixins';
+
+.navigation-header {
+  position: relative;
+  background: $color-grey-800;
+  border-bottom: 1px solid $color-grey-600;
+  
+  &__container {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: $spacing-lg $spacing-xl;
+    max-width: $max-width-container;
+    margin: 0 auto;
+    
+    @include breakpoint(large) {
+      padding: $spacing-lg $spacing-4xl;
+    }
+  }
+  
+  &__logo {
+    flex-shrink: 0;
+  }
+  
+  // Desktop Navigation
+  &__nav {
+    display: none;
+    
+    @include breakpoint(large) {
+      display: block;
+      position: absolute;
+      left: 50%;
+      transform: translateX(-50%);
+    }
+  }
+  
+  &__nav-list {
+    display: flex;
+    align-items: center;
+    gap: $spacing-md-sm;
+    list-style: none;
+    margin: 0;
+    padding: 0;
+  }
+  
+  &__nav-item {
+    margin: 0;
+  }
+  
+  &__nav-link {
+    display: block;
+    padding: $spacing-sm $spacing-md;
+    color: $color-grey-200;
+    text-decoration: none;
+    font-family: $font-family-inter;
+    font-weight: $font-weight-medium;
+    font-size: $font-size-base;
+    line-height: $line-height-nav;
+    letter-spacing: $letter-spacing-nav;
+    border-radius: $border-radius-xl;
+    transition: $transition-colors;
+    
+    &:hover {
+      background: rgba(255, 255, 255, 0.05);
+      color: $color-white;
+    }
+    
+    @include focus-visible;
+  }
+  
+  // Desktop CTA Buttons
+  &__cta {
+    display: none;
+    
+    @include breakpoint(large) {
+      display: flex;
+      align-items: center;
+      gap: $spacing-sm;
+    }
+  }
+  
+  // Mobile Right Section Container
+  &__mobile-right {
+    display: flex;
+    align-items: center;
+    gap: $spacing-sm;
+    
+    @include breakpoint(large) {
+      display: none;
+    }
+  }
+  
+  // Mobile CTA Buttons (visible on mobile, in header)
+  &__mobile-cta {
+    display: flex;
+    align-items: center;
+    gap: $spacing-sm;
+  }
+  
+  // Base button styles - shared between desktop and mobile
+  %base-cta-button {
+    padding: $spacing-md-sm $spacing-md;
+    border: none;
+    border-radius: $border-radius-xl;
+    font-family: $font-family-inter;
+    font-weight: $font-weight-medium;
+    font-size: $font-size-base;
+    line-height: normal;
+    letter-spacing: $letter-spacing-normal;
+    cursor: pointer;
+    transition: $transition-colors;
+    background: transparent;
+    color: $color-grey-200;
+    
+    &:hover {
+      background: rgba(255, 255, 255, 0.05);
+      color: $color-white;
+    }
+    
+    @include focus-visible;
+  }
+
+  %primary-cta-button {
+    background: $color-white;
+    color: $color-grey-800;
+    
+    &:hover {
+      background: rgba(247, 248, 248, 0.9);
+      color: $color-grey-800;
+    }
+  }
+
+  &__mobile-cta-button {
+    @extend %base-cta-button;
+    
+    &--primary {
+      @extend %primary-cta-button;
+    }
+  }
+  
+  &__cta-button {
+    @extend %base-cta-button;
+    
+    &--primary {
+      @extend %primary-cta-button;
+    }
+  }
+  
+  // Mobile Menu Button
+  &__mobile-toggle {
+    display: block;
+    padding: $spacing-sm;
+    border: none;
+    background: transparent;
+    cursor: pointer;
+    border-radius: $border-radius-lg;
+    transition: $transition-colors;
+    
+    &:hover {
+      background: rgba(255, 255, 255, 0.05);
+    }
+    
+    @include breakpoint(large) {
+      display: none;
+    }
+    
+    @include focus-visible;
+  }
+  
+  // Mobile Menu Dropdown
+  &__mobile-menu {
+    position: absolute;
+    top: 100%; // Position directly below header
+    left: 0;
+    right: 0;
+    background: $color-grey-800;
+    border-bottom: 1px solid $color-grey-600;
+    z-index: $z-index-dropdown;
+    max-height: calc(100vh - 100px); // Reserve space for header
+    overflow-y: auto;
+    
+    @include breakpoint(large) {
+      display: none;
+    }
+  }
+  
+  &__mobile-nav {
+    padding: $spacing-lg $spacing-xl;
+  }
+  
+  &__mobile-nav-list {
+    display: flex;
+    flex-direction: column;
+    gap: $spacing-sm;
+    list-style: none;
+    margin: 0 0 $spacing-lg 0;
+    padding: 0;
+  }
+  
+  &__mobile-nav-item {
+    margin: 0;
+  }
+  
+  &__mobile-nav-link {
+    display: block;
+    padding: $spacing-md;
+    color: $color-grey-200;
+    text-decoration: none;
+    font-family: $font-family-inter;
+    font-weight: $font-weight-medium;
+    font-size: $font-size-base;
+    line-height: $line-height-nav;
+    letter-spacing: $letter-spacing-nav;
+    border-radius: $border-radius-xl;
+    transition: $transition-colors;
+    
+    &:hover {
+      background: rgba(255, 255, 255, 0.05);
+      color: $color-white;
+    }
+    
+    @include focus-visible;
+  }
+}

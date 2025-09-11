@@ -156,6 +156,27 @@
       margin: -$spacing-2xl;
     }
   }
+  
+  &__navigationWrapper {
+    width: 100%;
+    margin: -$spacing-2xl;
+    // Let NavigationHeader display at full width naturally
+    // Component's responsive behavior will be visible when browser is resized
+  }
+  
+  &__compatibleWrapper {
+    background-color: $color-background-elevated;
+    padding: $spacing-2xl;
+    border-radius: $border-radius-md;
+    
+    h3 {
+      margin-top: 0;
+      margin-bottom: $spacing-lg;
+      color: $color-text-primary;
+      font-size: $font-size-lg;
+      font-weight: $font-weight-semibold;
+    }
+  }
 }
 
 // Code example component
