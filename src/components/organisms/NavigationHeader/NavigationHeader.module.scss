@@ -14,7 +14,7 @@
     max-width: $max-width-container;
     margin: 0 auto;
     
-    @include breakpoint(medium) {
+    @include breakpoint(large) {
       padding: $spacing-lg $spacing-4xl;
     }
   }
@@ -27,7 +27,7 @@
   &__nav {
     display: none;
     
-    @include breakpoint(medium) {
+    @include breakpoint(large) {
       display: block;
       position: absolute;
       left: 50%;
@@ -73,7 +73,7 @@
   &__cta {
     display: none;
     
-    @include breakpoint(medium) {
+    @include breakpoint(large) {
       display: flex;
       align-items: center;
       gap: $spacing-sm;
@@ -86,7 +86,7 @@
     align-items: center;
     gap: $spacing-sm;
     
-    @include breakpoint(medium) {
+    @include breakpoint(large) {
       display: none;
     }
   }
@@ -161,7 +161,7 @@
       background: rgba(255, 255, 255, 0.05);
     }
     
-    @include breakpoint(medium) {
+    @include breakpoint(large) {
       display: none;
     }
     
@@ -180,7 +180,7 @@
     max-height: calc(100vh - 100px); // Reserve space for header
     overflow-y: auto;
     
-    @include breakpoint(medium) {
+    @include breakpoint(large) {
       display: none;
     }
   }
