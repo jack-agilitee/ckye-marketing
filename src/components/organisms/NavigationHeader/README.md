@@ -4,7 +4,7 @@
 A responsive navigation header component that provides the main site navigation with logo, navigation links, and call-to-action buttons. Features a mobile-friendly hamburger menu that transforms into a full overlay menu on smaller screens. The component is designed to be sticky and provides smooth transitions between desktop and mobile layouts.
 
 ## Figma Reference
-- **Design URL**: [NavigationHeader in Figma](https://figma.com/file/...)
+- **Design URL**: [NavigationHeader in Figma](https://www.figma.com/design/batSZdoIexmqeC4jNmxObc/)
 - **Last Updated**: 2025-09-11
 - **Designer**: CKYE Design Team
 
@@ -56,7 +56,7 @@ function App() {
 ### Mobile Layout (<768px)
 - **Logo**: Left-aligned CKYE logo
 - **Navigation**: Hidden, replaced by mobile menu
-- **CTA Buttons**: Hidden, moved to mobile menu
+- **CTA Buttons**: Visible in header (Login/SignUp buttons)
 - **Mobile Toggle**: Visible hamburger/close icon button
 
 ## Navigation Items
@@ -98,7 +98,7 @@ function App() {
 
 ### Menu Content
 ```tsx
-// Mobile menu structure when open
+// Mobile menu structure when open - only navigation items
 <div className="navigation-header__mobile-menu">
   <nav className="navigation-header__mobile-nav">
     <ul className="navigation-header__mobile-nav-list">
@@ -106,18 +106,16 @@ function App() {
       <li><a href="#enterprise">Enterprise</a></li>
       <li><a href="#contact">Contact</a></li>
     </ul>
-    <div className="navigation-header__mobile-cta">
-      <button>Log In</button>
-      <button className="--primary">Sign Up</button>
-    </div>
   </nav>
 </div>
 ```
 
+Note: CTA buttons remain visible in the header on mobile, not in the dropdown menu.
+
 ### Auto-Close Behavior
 - Menu automatically closes when any navigation link is clicked
-- Menu automatically closes when any CTA button is clicked
 - Manual close via close icon button
+- CTA buttons in header operate independently of mobile menu
 
 ## Accessibility
 

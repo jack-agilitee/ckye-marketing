@@ -98,7 +98,8 @@
     gap: $spacing-sm;
   }
   
-  &__mobile-cta-button {
+  // Base button styles - shared between desktop and mobile
+  %base-cta-button {
     padding: $spacing-md-sm $spacing-md;
     border: none;
     border-radius: $border-radius-xl;
@@ -115,51 +116,35 @@
     &:hover {
       background: rgba(255, 255, 255, 0.05);
       color: $color-white;
-    }
-    
-    &--primary {
-      background: $color-white;
-      color: $color-grey-800;
-      
-      &:hover {
-        background: rgba(247, 248, 248, 0.9);
-        color: $color-grey-800;
-      }
     }
     
     @include focus-visible;
   }
-  
-  &__cta-button {
-    padding: $spacing-md-sm $spacing-md;
-    border: none;
-    border-radius: $border-radius-xl;
-    font-family: $font-family-inter;
-    font-weight: $font-weight-medium;
-    font-size: $font-size-base;
-    line-height: normal;
-    letter-spacing: $letter-spacing-normal;
-    cursor: pointer;
-    transition: $transition-colors;
-    background: transparent;
-    color: $color-grey-200;
+
+  %primary-cta-button {
+    background: $color-white;
+    color: $color-grey-800;
     
     &:hover {
-      background: rgba(255, 255, 255, 0.05);
-      color: $color-white;
+      background: rgba(247, 248, 248, 0.9);
+      color: $color-grey-800;
     }
+  }
+
+  &__mobile-cta-button {
+    @extend %base-cta-button;
     
     &--primary {
-      background: $color-white;
-      color: $color-grey-800;
-      
-      &:hover {
-        background: rgba(247, 248, 248, 0.9);
-        color: $color-grey-800;
-      }
+      @extend %primary-cta-button;
     }
+  }
+  
+  &__cta-button {
+    @extend %base-cta-button;
     
-    @include focus-visible;
+    &--primary {
+      @extend %primary-cta-button;
+    }
   }
   
   // Mobile Menu Button
@@ -185,14 +170,14 @@
   
   // Mobile Menu Dropdown
   &__mobile-menu {
-    position: fixed;
-    top: 73px; // Height of header (24px padding * 2 + 25px content)
+    position: absolute;
+    top: 100%; // Position directly below header
     left: 0;
     right: 0;
     background: $color-grey-800;
     border-bottom: 1px solid $color-grey-600;
     z-index: $z-index-dropdown;
-    max-height: calc(100vh - 73px);
+    max-height: calc(100vh - 100px); // Reserve space for header
     overflow-y: auto;
     
     @include breakpoint(medium) {
