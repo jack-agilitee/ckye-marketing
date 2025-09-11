@@ -103,8 +103,10 @@ describe('NavigationHeader Accessibility Tests (WCAG 2.1 AA Compliance)', () => 
         screen.getAllByRole('link')[0], // First nav link
         screen.getAllByRole('link')[1], // Second nav link 
         screen.getAllByRole('link')[2], // Third nav link
-        screen.getAllByRole('button')[0], // Log In button
-        screen.getAllByRole('button')[1], // Sign Up button
+        screen.getAllByRole('button')[0], // Desktop Log In button
+        screen.getAllByRole('button')[1], // Desktop Sign Up button
+        screen.getAllByRole('button')[2], // Mobile Log In button
+        screen.getAllByRole('button')[3], // Mobile Sign Up button
         screen.getByRole('button', { name: 'Open menu' }), // Mobile toggle
       ];
       
@@ -206,9 +208,9 @@ describe('NavigationHeader Accessibility Tests (WCAG 2.1 AA Compliance)', () => 
       expect(screen.getByRole('link', { name: 'Enterprise' })).toBeInTheDocument();
       expect(screen.getByRole('link', { name: 'Contact' })).toBeInTheDocument();
       
-      // CTA buttons (desktop only initially)
-      expect(screen.getAllByRole('button', { name: 'Log In' })).toHaveLength(1);
-      expect(screen.getAllByRole('button', { name: 'Sign Up' })).toHaveLength(1);
+      // CTA buttons (desktop and mobile now visible)
+      expect(screen.getAllByRole('button', { name: 'Log In' })).toHaveLength(2);
+      expect(screen.getAllByRole('button', { name: 'Sign Up' })).toHaveLength(2);
       
       // Mobile toggle
       expect(screen.getByRole('button', { name: 'Open menu' })).toBeInTheDocument();
@@ -440,8 +442,8 @@ describe('NavigationHeader Accessibility Tests (WCAG 2.1 AA Compliance)', () => 
       
       // All buttons should have clear, descriptive labels
       expect(screen.getByRole('button', { name: 'Open menu' })).toBeInTheDocument();
-      expect(screen.getAllByRole('button', { name: 'Log In' })).toHaveLength(1);
-      expect(screen.getAllByRole('button', { name: 'Sign Up' })).toHaveLength(1);
+      expect(screen.getAllByRole('button', { name: 'Log In' })).toHaveLength(2);
+      expect(screen.getAllByRole('button', { name: 'Sign Up' })).toHaveLength(2);
       
       // All links should have descriptive text
       expect(screen.getByRole('link', { name: 'Product' })).toBeInTheDocument();

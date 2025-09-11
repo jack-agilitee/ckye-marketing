@@ -58,7 +58,7 @@ const NavigationHeader: React.FC<NavigationHeaderProps> = ({ className, 'data-te
           </ul>
         </nav>
 
-        {/* CTA Buttons */}
+        {/* Desktop CTA Buttons */}
         <div className={styles['navigation-header__cta']} data-testid="desktop-cta-buttons">
           <button className={styles['navigation-header__cta-button']} type="button" data-testid="cta-login">
             Log In
@@ -68,25 +68,38 @@ const NavigationHeader: React.FC<NavigationHeaderProps> = ({ className, 'data-te
           </button>
         </div>
 
-        {/* Mobile Menu Button */}
-        <button
-          className={styles['navigation-header__mobile-toggle']}
-          onClick={toggleMobileMenu}
-          type="button"
-          aria-label={isMobileMenuOpen ? 'Close menu' : 'Open menu'}
-          aria-expanded={isMobileMenuOpen}
-          data-testid="mobile-menu-toggle"
-        >
-          <Image
-            src={isMobileMenuOpen ? '/close.svg' : '/hamburger.svg'}
-            alt=""
-            width={24}
-            height={24}
-          />
-        </button>
+        {/* Mobile Right Section - CTA Buttons + Hamburger */}
+        <div className={styles['navigation-header__mobile-right']}>
+          {/* Mobile CTA Buttons */}
+          <div className={styles['navigation-header__mobile-cta']} data-testid="mobile-cta-buttons">
+            <button className={styles['navigation-header__mobile-cta-button']} type="button" data-testid="mobile-cta-login">
+              Log In
+            </button>
+            <button className={`${styles['navigation-header__mobile-cta-button']} ${styles['navigation-header__mobile-cta-button--primary']}`} type="button" data-testid="mobile-cta-signup">
+              Sign Up
+            </button>
+          </div>
+
+          {/* Mobile Menu Button */}
+          <button
+            className={styles['navigation-header__mobile-toggle']}
+            onClick={toggleMobileMenu}
+            type="button"
+            aria-label={isMobileMenuOpen ? 'Close menu' : 'Open menu'}
+            aria-expanded={isMobileMenuOpen}
+            data-testid="mobile-menu-toggle"
+          >
+            <Image
+              src={isMobileMenuOpen ? '/close.svg' : '/hamburger.svg'}
+              alt=""
+              width={24}
+              height={24}
+            />
+          </button>
+        </div>
       </div>
 
-      {/* Mobile Menu Dropdown */}
+      {/* Mobile Menu Dropdown - Only Navigation Items */}
       {isMobileMenuOpen && (
         <div className={styles['navigation-header__mobile-menu']} data-testid="mobile-menu">
           <nav className={styles['navigation-header__mobile-nav']} aria-label="Mobile navigation">
@@ -122,24 +135,6 @@ const NavigationHeader: React.FC<NavigationHeaderProps> = ({ className, 'data-te
                 </a>
               </li>
             </ul>
-            <div className={styles['navigation-header__mobile-cta']} data-testid="mobile-cta-buttons">
-              <button 
-                className={styles['navigation-header__mobile-cta-button']} 
-                type="button"
-                onClick={handleNavClick}
-                data-testid="mobile-cta-login"
-              >
-                Log In
-              </button>
-              <button 
-                className={`${styles['navigation-header__mobile-cta-button']} ${styles['navigation-header__mobile-cta-button--primary']}`} 
-                type="button"
-                onClick={handleNavClick}
-                data-testid="mobile-cta-signup"
-              >
-                Sign Up
-              </button>
-            </div>
           </nav>
         </div>
       )}

@@ -31,6 +31,7 @@ jest.mock('./NavigationHeader.module.scss', () => ({
   'navigation-header__cta': 'navigation-header__cta',
   'navigation-header__cta-button': 'navigation-header__cta-button',
   'navigation-header__cta-button--primary': 'navigation-header__cta-button--primary',
+  'navigation-header__mobile-right': 'navigation-header__mobile-right',
   'navigation-header__mobile-toggle': 'navigation-header__mobile-toggle',
   'navigation-header__mobile-menu': 'navigation-header__mobile-menu',
   'navigation-header__mobile-nav': 'navigation-header__mobile-nav',
@@ -96,12 +97,12 @@ describe('NavigationHeader Component', () => {
     it('should render desktop CTA buttons', () => {
       renderNavigationHeader();
       
-      // Check desktop CTA buttons exist (mobile versions are hidden until menu is opened)
+      // Check desktop CTA buttons exist (mobile versions are also visible in header)
       const loginButtons = screen.getAllByRole('button', { name: 'Log In' });
       const signupButtons = screen.getAllByRole('button', { name: 'Sign Up' });
       
-      expect(loginButtons).toHaveLength(1); // Only desktop version initially
-      expect(signupButtons).toHaveLength(1); // Only desktop version initially
+      expect(loginButtons).toHaveLength(2); // Desktop and mobile versions
+      expect(signupButtons).toHaveLength(2); // Desktop and mobile versions
     });
 
     it('should render mobile CTA buttons when menu is open', async () => {
@@ -275,7 +276,7 @@ describe('NavigationHeader Component', () => {
       expect(toggleButton).toHaveAttribute('aria-label', 'Open menu');
     });
 
-    it('should close mobile menu when CTA button is clicked', async () => {
+    it('should not close mobile menu when header CTA button is clicked', async () => {
       const user = userEvent.setup();
       renderNavigationHeader();
       
@@ -290,13 +291,13 @@ describe('NavigationHeader Component', () => {
         expect(screen.getByTestId('mobile-menu')).toBeInTheDocument();
       });
       
-      // Click on mobile CTA button
+      // Click on mobile CTA button (now in header, not in dropdown)
       const mobileLoginButton = screen.getByTestId('mobile-cta-login');
       await user.click(mobileLoginButton);
       
-      // Menu should be closed
-      expect(toggleButton).toHaveAttribute('aria-expanded', 'false');
-      expect(toggleButton).toHaveAttribute('aria-label', 'Open menu');
+      // Menu should remain open since CTA buttons are now in header
+      expect(toggleButton).toHaveAttribute('aria-expanded', 'true');
+      expect(toggleButton).toHaveAttribute('aria-label', 'Close menu');
     });
   });
 
@@ -646,13 +647,15 @@ describe('NavigationHeader Component', () => {
       
       await waitFor(() => {
         expect(screen.getByTestId('mobile-menu')).toBeInTheDocument();
-        expect(screen.getByTestId('mobile-cta-buttons')).toBeInTheDocument();
         expect(screen.getByTestId('mobile-nav-link-product')).toBeInTheDocument();
         expect(screen.getByTestId('mobile-nav-link-enterprise')).toBeInTheDocument();
         expect(screen.getByTestId('mobile-nav-link-contact')).toBeInTheDocument();
-        expect(screen.getByTestId('mobile-cta-login')).toBeInTheDocument();
-        expect(screen.getByTestId('mobile-cta-signup')).toBeInTheDocument();
       });
+      
+      // Mobile CTA buttons should be in header (always visible)
+      expect(screen.getByTestId('mobile-cta-buttons')).toBeInTheDocument();
+      expect(screen.getByTestId('mobile-cta-login')).toBeInTheDocument();
+      expect(screen.getByTestId('mobile-cta-signup')).toBeInTheDocument();
     });
   });
 
@@ -829,27 +832,24 @@ describe('NavigationHeader Component', () => {
       }
     });
 
-    it('should handle state changes from mobile CTA button clicks', async () => {
+    it('should handle state independence of mobile CTA button clicks', async () => {
       const user = userEvent.setup();
       renderNavigationHeader();
       
       const toggleButton = screen.getByRole('button', { name: 'Open menu' });
       
-      // Test login button
+      // Test login button (should not affect menu state)
       await user.click(toggleButton);
       expect(toggleButton).toHaveAttribute('aria-expanded', 'true');
       
       const mobileLoginButton = screen.getByTestId('mobile-cta-login');
       await user.click(mobileLoginButton);
-      expect(toggleButton).toHaveAttribute('aria-expanded', 'false');
+      expect(toggleButton).toHaveAttribute('aria-expanded', 'true'); // Remains open
       
-      // Test signup button
-      await user.click(toggleButton);
-      expect(toggleButton).toHaveAttribute('aria-expanded', 'true');
-      
+      // Test signup button (should not affect menu state)
       const mobileSignupButton = screen.getByTestId('mobile-cta-signup');
       await user.click(mobileSignupButton);
-      expect(toggleButton).toHaveAttribute('aria-expanded', 'false');
+      expect(toggleButton).toHaveAttribute('aria-expanded', 'true'); // Remains open
     });
   });
 

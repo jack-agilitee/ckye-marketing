@@ -69,7 +69,7 @@
     @include focus-visible;
   }
   
-  // CTA Buttons
+  // Desktop CTA Buttons
   &__cta {
     display: none;
     
@@ -78,6 +78,56 @@
       align-items: center;
       gap: $spacing-sm;
     }
+  }
+  
+  // Mobile Right Section Container
+  &__mobile-right {
+    display: flex;
+    align-items: center;
+    gap: $spacing-sm;
+    
+    @include breakpoint(medium) {
+      display: none;
+    }
+  }
+  
+  // Mobile CTA Buttons (visible on mobile, in header)
+  &__mobile-cta {
+    display: flex;
+    align-items: center;
+    gap: $spacing-sm;
+  }
+  
+  &__mobile-cta-button {
+    padding: $spacing-md-sm $spacing-md;
+    border: none;
+    border-radius: $border-radius-xl;
+    font-family: $font-family-inter;
+    font-weight: $font-weight-medium;
+    font-size: $font-size-base;
+    line-height: normal;
+    letter-spacing: $letter-spacing-normal;
+    cursor: pointer;
+    transition: $transition-colors;
+    background: transparent;
+    color: $color-grey-200;
+    
+    &:hover {
+      background: rgba(255, 255, 255, 0.05);
+      color: $color-white;
+    }
+    
+    &--primary {
+      background: $color-white;
+      color: $color-grey-800;
+      
+      &:hover {
+        background: rgba(247, 248, 248, 0.9);
+        color: $color-grey-800;
+      }
+    }
+    
+    @include focus-visible;
   }
   
   &__cta-button {
@@ -183,46 +233,6 @@
     &:hover {
       background: rgba(255, 255, 255, 0.05);
       color: $color-white;
-    }
-    
-    @include focus-visible;
-  }
-  
-  &__mobile-cta {
-    display: flex;
-    flex-direction: column;
-    gap: $spacing-sm;
-    padding-top: $spacing-lg;
-    border-top: 1px solid $color-grey-600;
-  }
-  
-  &__mobile-cta-button {
-    padding: $spacing-md-sm $spacing-md;
-    border: none;
-    border-radius: $border-radius-xl;
-    font-family: $font-family-inter;
-    font-weight: $font-weight-medium;
-    font-size: $font-size-base;
-    line-height: normal;
-    letter-spacing: $letter-spacing-normal;
-    cursor: pointer;
-    transition: $transition-colors;
-    background: transparent;
-    color: $color-grey-200;
-    
-    &:hover {
-      background: rgba(255, 255, 255, 0.05);
-      color: $color-white;
-    }
-    
-    &--primary {
-      background: $color-white;
-      color: $color-grey-800;
-      
-      &:hover {
-        background: rgba(247, 248, 248, 0.9);
-        color: $color-grey-800;
-      }
     }
     
     @include focus-visible;
