@@ -1,0 +1,367 @@
+// Jest Snapshot v1, https://jestjs.io/docs/snapshot-testing
+
+exports[`Home Page Snapshot Tests should match snapshot for main content structure 1`] = `
+<main>
+  <section
+    aria-labelledby="hero-heading"
+    data-testid="hero"
+  >
+    <h1
+      id="hero-heading"
+    >
+      Ckye is a Governed Orchestration Layer for AI Coding Agents
+    </h1>
+    <p>
+      / ckye /
+    </p>
+    <p>
+      Ckye unlocks EBITA your current stack can't reach, compressing timelines, cutting unit costs, and avoiding rework.
+    </p>
+    <button
+      aria-label="Get started with Ckye platform"
+    >
+      Get Ckye
+    </button>
+  </section>
+  <section
+    data-testid="compatible-with"
+  >
+    <h2>
+      Compatible With Section
+    </h2>
+  </section>
+  <section
+    data-layout="image-right"
+    data-testid="feature-section"
+  >
+    <h2>
+      Where is the AI revolution I was promised?
+    </h2>
+    <p>
+      The reality is enterprises are only one step away from unlocking millions in ROI this budget year, by leveraging the AI tools you already have in place.
+    </p>
+    <img
+      alt="AI revolution visualization showing current enterprise AI tools and potential"
+      src="/content/feature-ai-revolution.png"
+    />
+  </section>
+  <section
+    data-gradient="blue"
+    data-testid="metrics"
+    data-variant="single"
+  >
+    <h2>
+      Metrics Section
+    </h2>
+    <div
+      data-testid="metric-0"
+    >
+      <h3>
+        OpEx
+      </h3>
+      <span>
+        50%
+      </span>
+      <p>
+        Reduction in IT Operating Expenses
+      </p>
+    </div>
+    <div
+      data-testid="metric-1"
+    >
+      <h3>
+        Time to Market
+      </h3>
+      <span>
+        2X
+      </span>
+      <p>
+        Faster compared to out of the box AI alone
+      </p>
+    </div>
+    <div
+      data-testid="metric-2"
+    >
+      <h3>
+        Code Quality
+      </h3>
+      <span>
+        50%
+      </span>
+      <p>
+        Increase in overall code quality vs. non Ckye users
+      </p>
+    </div>
+  </section>
+  <section
+    data-layout="image-left"
+    data-testid="feature-section"
+  >
+    <h2>
+      Where is the AI revolution I was promised?
+    </h2>
+    <p>
+      The reality is enterprises are only one step away from unlocking millions in ROI this budget year, by leveraging the AI tools you already have in place.
+    </p>
+    <img
+      alt="Enterprise AI transformation roadmap and implementation strategy"
+      src="/content/feature-ai-revolution-left.png"
+    />
+  </section>
+  <section
+    data-layout="image-right"
+    data-testid="feature-section"
+  >
+    <h2>
+      Concise Copy goes here
+    </h2>
+    <p>
+      Ckye unlocks EBITA your current stack can't reach, compressing timelines, cutting unit costs, and avoiding rework.
+    </p>
+    <img
+      alt="Comprehensive view of Ckye platform capabilities and benefits"
+      src="/content/feature-full-width.png"
+    />
+  </section>
+  <section
+    data-gradient="orange"
+    data-testid="metrics"
+    data-variant="double"
+  >
+    <h2>
+      Metrics Section
+    </h2>
+    <div
+      data-testid="metric-0"
+    >
+      <h3>
+        Traditional Offshore
+      </h3>
+      <span>
+        6 mo
+      </span>
+      <span>
+        $1MM
+      </span>
+      <p>
+        7 person offshore team
+      </p>
+    </div>
+    <div
+      data-testid="metric-1"
+    >
+      <h3>
+        Out-of-the-box AI
+      </h3>
+      <span>
+        5 mo
+      </span>
+      <span>
+        $850K
+      </span>
+      <p>
+        7 person offshore team using AI
+      </p>
+    </div>
+    <div
+      data-testid="metric-2"
+    >
+      <h3>
+        With Ckye
+      </h3>
+      <span>
+        6 weeks
+      </span>
+      <span>
+        $90K
+      </span>
+      <p>
+        2 person onshore team using Ckye
+      </p>
+    </div>
+  </section>
+</main>
+`;
+
+exports[`Home Page Snapshot Tests should match the snapshot for overall structure 1`] = `
+<main>
+  <section
+    aria-labelledby="hero-heading"
+    data-testid="hero"
+  >
+    <h1
+      id="hero-heading"
+    >
+      Ckye is a Governed Orchestration Layer for AI Coding Agents
+    </h1>
+    <p>
+      / ckye /
+    </p>
+    <p>
+      Ckye unlocks EBITA your current stack can't reach, compressing timelines, cutting unit costs, and avoiding rework.
+    </p>
+    <button
+      aria-label="Get started with Ckye platform"
+    >
+      Get Ckye
+    </button>
+  </section>
+  <section
+    data-testid="compatible-with"
+  >
+    <h2>
+      Compatible With Section
+    </h2>
+  </section>
+  <section
+    data-layout="image-right"
+    data-testid="feature-section"
+  >
+    <h2>
+      Where is the AI revolution I was promised?
+    </h2>
+    <p>
+      The reality is enterprises are only one step away from unlocking millions in ROI this budget year, by leveraging the AI tools you already have in place.
+    </p>
+    <img
+      alt="AI revolution visualization showing current enterprise AI tools and potential"
+      src="/content/feature-ai-revolution.png"
+    />
+  </section>
+  <section
+    data-gradient="blue"
+    data-testid="metrics"
+    data-variant="single"
+  >
+    <h2>
+      Metrics Section
+    </h2>
+    <div
+      data-testid="metric-0"
+    >
+      <h3>
+        OpEx
+      </h3>
+      <span>
+        50%
+      </span>
+      <p>
+        Reduction in IT Operating Expenses
+      </p>
+    </div>
+    <div
+      data-testid="metric-1"
+    >
+      <h3>
+        Time to Market
+      </h3>
+      <span>
+        2X
+      </span>
+      <p>
+        Faster compared to out of the box AI alone
+      </p>
+    </div>
+    <div
+      data-testid="metric-2"
+    >
+      <h3>
+        Code Quality
+      </h3>
+      <span>
+        50%
+      </span>
+      <p>
+        Increase in overall code quality vs. non Ckye users
+      </p>
+    </div>
+  </section>
+  <section
+    data-layout="image-left"
+    data-testid="feature-section"
+  >
+    <h2>
+      Where is the AI revolution I was promised?
+    </h2>
+    <p>
+      The reality is enterprises are only one step away from unlocking millions in ROI this budget year, by leveraging the AI tools you already have in place.
+    </p>
+    <img
+      alt="Enterprise AI transformation roadmap and implementation strategy"
+      src="/content/feature-ai-revolution-left.png"
+    />
+  </section>
+  <section
+    data-layout="image-right"
+    data-testid="feature-section"
+  >
+    <h2>
+      Concise Copy goes here
+    </h2>
+    <p>
+      Ckye unlocks EBITA your current stack can't reach, compressing timelines, cutting unit costs, and avoiding rework.
+    </p>
+    <img
+      alt="Comprehensive view of Ckye platform capabilities and benefits"
+      src="/content/feature-full-width.png"
+    />
+  </section>
+  <section
+    data-gradient="orange"
+    data-testid="metrics"
+    data-variant="double"
+  >
+    <h2>
+      Metrics Section
+    </h2>
+    <div
+      data-testid="metric-0"
+    >
+      <h3>
+        Traditional Offshore
+      </h3>
+      <span>
+        6 mo
+      </span>
+      <span>
+        $1MM
+      </span>
+      <p>
+        7 person offshore team
+      </p>
+    </div>
+    <div
+      data-testid="metric-1"
+    >
+      <h3>
+        Out-of-the-box AI
+      </h3>
+      <span>
+        5 mo
+      </span>
+      <span>
+        $850K
+      </span>
+      <p>
+        7 person offshore team using AI
+      </p>
+    </div>
+    <div
+      data-testid="metric-2"
+    >
+      <h3>
+        With Ckye
+      </h3>
+      <span>
+        6 weeks
+      </span>
+      <span>
+        $90K
+      </span>
+      <p>
+        2 person onshore team using Ckye
+      </p>
+    </div>
+  </section>
+</main>
+`;
