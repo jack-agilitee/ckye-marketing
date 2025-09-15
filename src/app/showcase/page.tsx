@@ -6,7 +6,7 @@ import NavTextItem from '@/components/atoms/NavTextItem/NavTextItem';
 import { Metrics } from '@/components/molecules/Metrics/Metrics';
 import { CompatibleWith } from '@/components/molecules/CompatibleWith/CompatibleWith';
 import FeatureSection from '@/components/organisms/FeatureSection/FeatureSection';
-import Hero from '@/components/Hero/Hero';
+import Hero from '@/components/organisms/Hero/Hero';
 import NavigationHeader from '@/components/organisms/NavigationHeader/NavigationHeader';
 import styles from './showcase.module.scss';
 

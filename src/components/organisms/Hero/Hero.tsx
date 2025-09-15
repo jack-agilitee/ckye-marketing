@@ -1,5 +1,5 @@
 import Image from 'next/image';
-import Button from '../atoms/Button/Button';
+import Button from '../../atoms/Button/Button';
 import styles from './Hero.module.scss';
 
 // TypeScript interfaces
