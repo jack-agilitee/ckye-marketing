@@ -1,95 +1,135 @@
-import Image from "next/image";
-import styles from "./page.module.css";
+import type { Metadata } from 'next';
+import Hero from '@/components/organisms/Hero/Hero';
+import CompatibleWith from '@/components/molecules/CompatibleWith/CompatibleWith';
+import FeatureSection from '@/components/organisms/FeatureSection/FeatureSection';
+import { Metrics } from '@/components/molecules/Metrics/Metrics';
+import styles from './page.module.scss';
+
+export const metadata: Metadata = {
+  title: 'CKYE - Governed Orchestration Layer for AI Coding Agents',
+  description: 'Ckye unlocks EBITA your current stack can\'t reach, compressing timelines, cutting unit costs, and avoiding rework.',
+  keywords: ['AI coding agents', 'orchestration', 'governance', 'enterprise AI', 'code quality', 'development tools'],
+  openGraph: {
+    title: 'CKYE - Governed Orchestration Layer for AI Coding Agents',
+    description: 'Ckye unlocks EBITA your current stack can\'t reach, compressing timelines, cutting unit costs, and avoiding rework.',
+    type: 'website',
+    url: 'https://ckye.com',
+    siteName: 'CKYE',
+    images: [
+      {
+        url: '/content/hero--desktop.png',
+        width: 1200,
+        height: 630,
+        alt: 'CKYE AI coding agents interface'
+      }
+    ]
+  },
+  twitter: {
+    card: 'summary_large_image',
+    title: 'CKYE - Governed Orchestration Layer for AI Coding Agents',
+    description: 'Ckye unlocks EBITA your current stack can\'t reach, compressing timelines, cutting unit costs, and avoiding rework.',
+    images: ['/content/hero--desktop.png']
+  }
+};
 
 export default function Home() {
   return (
-    <div className={styles.page}>
-      <main className={styles.main}>
-        <Image
-          className={styles.logo}
-          src="/next.svg"
-          alt="Next.js logo"
-          width={180}
-          height={38}
-          priority
-        />
-        <ol>
-          <li>
-            Get started by editing <code>src/app/page.tsx</code>.
-          </li>
-          <li>Save and see your changes instantly.</li>
-        </ol>
+    <main className={styles.page}>
+      {/* Hero Section */}
+      <Hero
+        tagline="/ ckye /"
+        heading="Ckye is a Governed Orchestration Layer for AI Coding Agents"
+        description="Ckye unlocks EBITA your current stack can't reach, compressing timelines, cutting unit costs, and avoiding rework."
+        ctaText="Get Ckye"
+        ctaAriaLabel="Get started with Ckye platform"
+      />
 
-        <div className={styles.ctas}>
-          <a
-            className={styles.primary}
-            href="https://vercel.com/new?utm_source=create-next-app&utm_medium=appdir-template&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            <Image
-              className={styles.logo}
-              src="/vercel.svg"
-              alt="Vercel logomark"
-              width={20}
-              height={20}
-            />
-            Deploy now
-          </a>
-          <a
-            href="https://nextjs.org/docs?utm_source=create-next-app&utm_medium=appdir-template&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-            className={styles.secondary}
-          >
-            Read our docs
-          </a>
-        </div>
-      </main>
-      <footer className={styles.footer}>
-        <a
-          href="https://nextjs.org/learn?utm_source=create-next-app&utm_medium=appdir-template&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <Image
-            aria-hidden
-            src="/file.svg"
-            alt="File icon"
-            width={16}
-            height={16}
-          />
-          Learn
-        </a>
-        <a
-          href="https://vercel.com/templates?framework=next.js&utm_source=create-next-app&utm_medium=appdir-template&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <Image
-            aria-hidden
-            src="/window.svg"
-            alt="Window icon"
-            width={16}
-            height={16}
-          />
-          Examples
-        </a>
-        <a
-          href="https://nextjs.org?utm_source=create-next-app&utm_medium=appdir-template&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <Image
-            aria-hidden
-            src="/globe.svg"
-            alt="Globe icon"
-            width={16}
-            height={16}
-          />
-          Go to nextjs.org →
-        </a>
-      </footer>
-    </div>
+      {/* Compatible With Section */}
+      <CompatibleWith />
+
+      {/* Feature Right Section */}
+      <FeatureSection
+        heading="Where is the AI revolution I was promised?"
+        bodyText="The reality is enterprises are only one step away from unlocking millions in ROI this budget year, by leveraging the AI tools you already have in place."
+        image={{
+          src: "/content/feature.png",
+          alt: "AI revolution visualization showing current enterprise AI tools and potential"
+        }}
+        layout="image-right"
+      />
+
+      {/* Metrics Section */}
+      <Metrics
+        className={styles.metricsSection}
+        variant="single"
+        metrics={[
+          {
+            title: "OpEx",
+            value: "50%",
+            description: "Reduction in IT Operating Expenses"
+          },
+          {
+            title: "Time to Market",
+            value: "2X",
+            description: "Faster compared to out of the box AI alone"
+          },
+          {
+            title: "Code Quality",
+            value: "50%",
+            description: "Increase in overall code quality vs. non Ckye users"
+          }
+        ]}
+        gradientColor="blue"
+      />
+
+      {/* Feature Left Section */}
+      <FeatureSection
+        heading="Where is the AI revolution I was promised?"
+        bodyText="The reality is enterprises are only one step away from unlocking millions in ROI this budget year, by leveraging the AI tools you already have in place."
+        image={{
+          src: "/content/feature.png",
+          alt: "Enterprise AI transformation roadmap and implementation strategy"
+        }}
+        layout="image-left"
+      />
+
+      {/* Feature Full Section */}
+      <FeatureSection
+        heading="Concise Copy goes here"
+        bodyText="Ckye unlocks EBITA your current stack can't reach, compressing timelines, cutting unit costs, and avoiding rework."
+        image={{
+          src: "/content/hero--desktop.png",
+          alt: "Comprehensive view of Ckye platform capabilities and benefits"
+        }}
+        layout="full"
+      />
+
+      {/* Metrics Double Stack Section */}
+      <Metrics
+        className={styles.metricsSection}
+        variant="double"
+        metrics={[
+          {
+            title: "Traditional Offshore",
+            value: "6 mo",
+            secondaryValue: "$1MM",
+            description: "7 person offshore team"
+          },
+          {
+            title: "Out-of-the-box AI",
+            value: "5 mo",
+            secondaryValue: "$850K",
+            description: "7 person offshore team using AI"
+          },
+          {
+            title: "With Ckye",
+            value: "6 weeks",
+            secondaryValue: "$90K",
+            description: "2 person onshore team using Ckye"
+          }
+        ]}
+        gradientColor="orange"
+      />
+    </main>
   );
 }

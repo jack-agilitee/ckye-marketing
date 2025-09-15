@@ -1,5 +1,5 @@
-@import '../../styles/variables';
-@import '../../styles/mixins';
+@import '../../../styles/variables';
+@import '../../../styles/mixins';
 
 .hero {
   position: relative;
@@ -9,26 +9,14 @@
   justify-content: center;
   align-items: center;
   overflow: hidden;
-  padding: $spacing-5xl 0 104px;
-
-  @include breakpoint(medium) {
-    padding: $spacing-5xl 0 $spacing-8xl;
-  }
-
-  @include breakpoint(large) {
-    padding: $spacing-5xl 0 144px;
-  }
+  // Remove padding - handled at page level
 
   &__container {
     width: 100%;
     margin: 0 auto;
-    padding: 0 $spacing-2xl;
+    // Remove horizontal padding - handled at page level
     position: relative;
     z-index: 1;
-
-    @include breakpoint(medium) {
-      padding: 0 $spacing-4xl;
-    }
   }
 
   &__content {

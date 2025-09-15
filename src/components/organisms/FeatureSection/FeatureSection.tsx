@@ -8,7 +8,7 @@ interface FeatureSectionProps {
     src: string;
     alt: string;
   };
-  layout: 'image-left' | 'image-right';
+  layout: 'image-left' | 'image-right' | 'full';
   className?: string;
 }
 
@@ -19,12 +19,19 @@ const FeatureSection: React.FC<FeatureSectionProps> = ({
   layout,
   className
 }) => {
-  const layoutClass = layout === 'image-left' 
-    ? styles['featureSection--imageLeft'] 
-    : styles['featureSection--imageRight'];
-  
+  const layoutClass = layout === 'image-left'
+    ? styles['featureSection--imageLeft']
+    : layout === 'image-right'
+    ? styles['featureSection--imageRight']
+    : styles['featureSection--full'];
+
   return (
     <section className={`${styles.featureSection} ${layoutClass} ${className || ''}`}>
+      <div className={styles['featureSection__content']}>
+        <h2 className={styles['featureSection__heading']}>{heading}</h2>
+        <p className={styles['featureSection__body']}>{bodyText}</p>
+      </div>
+
       <div className={styles['featureSection__imageWrapper']}>
         <Image
           src={image.src}
@@ -33,11 +40,6 @@ const FeatureSection: React.FC<FeatureSectionProps> = ({
           className={styles['featureSection__image']}
           priority={false}
         />
-      </div>
-      
-      <div className={styles['featureSection__content']}>
-        <h2 className={styles['featureSection__heading']}>{heading}</h2>
-        <p className={styles['featureSection__body']}>{bodyText}</p>
       </div>
     </section>
   );

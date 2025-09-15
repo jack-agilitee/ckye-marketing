@@ -2,7 +2,7 @@
 @import '../../../styles/mixins';
 
 .metrics {
-  padding: $spacing-4xl;
+  // Remove padding - handled at page level
   display: flex;
   align-items: center;
   justify-content: center;
@@ -191,8 +191,5 @@
     }
   }
   
-  // Mobile specific padding
-  @media (max-width: 767px) {
-    padding: $spacing-4xl $spacing-md;
-  }
+  // Remove mobile specific padding - handled at page level
 }
