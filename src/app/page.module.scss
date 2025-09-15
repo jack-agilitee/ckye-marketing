@@ -1,0 +1,46 @@
+@import '@/styles/variables';
+@import '@/styles/mixins';
+
+.page {
+  // Mobile first - smallest screens
+  padding: 40px 16px;
+
+  // 128px gap between all direct children (sections)
+  display: flex;
+  flex-direction: column;
+  gap: 128px;
+
+  @include breakpoint(small) {
+    padding: 60px 32px;
+  }
+
+  @include breakpoint(medium) {
+    padding: 60px 32px;
+  }
+
+  @include breakpoint(large) {
+    padding: 80px 64px;
+  }
+}
+
+// Custom styling for Metrics sections on home page
+.metricsSection {
+  background: var(--Gradient-Grey, linear-gradient(180deg, #141516 0%, #08090A 100%));
+  padding: 64px;
+  border-radius: 16px;
+
+  // Mobile padding adjustment
+  padding: 40px 24px;
+
+  @include breakpoint(small) {
+    padding: 48px 32px;
+  }
+
+  @include breakpoint(medium) {
+    padding: 64px 48px;
+  }
+
+  @include breakpoint(large) {
+    padding: 64px;
+  }
+}
